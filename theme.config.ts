@@ -5,14 +5,14 @@ import { defineTheme, colors, borders, borderRadiuses } from '@reusable-ui/core'
 
 defineTheme('primary', 'hsl(222,  8%, 20%)');
 colors.primaryText =   'hsl(222,  9%, 42%)' as any;
-// colors.primaryBold =   'hsl(222,  9%, 42%)' as any;
-colors.primaryBold = 'green' as any;
+colors.primaryBold =   'hsl(222,  9%, 42%)' as any;
+// colors.primaryBold = 'green' as any;
 
-borders.defaultWidth = '4px' as any;
+borders.defaultWidth = '2px' as any;
 
-borderRadiuses.sm = '1rem'   as any,
-borderRadiuses.md = '1.5rem' as any,
-borderRadiuses.lg = '2rem'   as any,
+borderRadiuses.sm = '0.75rem'   as any,
+borderRadiuses.md = '1.25rem' as any,
+borderRadiuses.lg = '1.5rem'   as any,
 
 // defineTheme('secondary', 'hsl(28, 30%, 80%)');
 console.log('color themes registered!');

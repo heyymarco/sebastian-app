@@ -3,6 +3,7 @@ import {
     // writes css in javascript:
     states,
     style,
+    vars,
     children,
     descendants,
     
@@ -13,9 +14,9 @@ import {
     
     
     
-    // writes complex stylesheets in simpler way:
-    watchChanges,
-    memoizeStyle,
+    // strongly typed of css variables:
+    cssVars,
+    switchOf,
 }                           from '@cssfn/core'                  // writes css in javascript
 
 // reusable-ui core:
@@ -96,9 +97,21 @@ import {
 
 
 
+// vars:
+interface NavsideVars {
+    totalMenuInlineSize : any
+    totalMenuBlockSize  : any
+    
+    restMenuInlineSize : any
+    restMenuBlockSize  : any
+}
+const [navsideVars] = cssVars<NavsideVars>();
+
+
+
 // styles:
 const menuItemOuterHeight = '3rem';
-const menuItemInnerHeight = '1.5rem';
+// const menuItemInnerHeight = '1.5rem';
 export const usesIndicatorLayout = () => {
     // dependencies:
     
@@ -111,6 +124,13 @@ export const usesIndicatorLayout = () => {
     return style({
         // layouts:
         ...usesBasicLayout(),
+        ...vars({
+            [navsideVars.totalMenuInlineSize] : `calc(${navsides.menuInlineSize} + (2 * ${navsides.menuMarginInline}))`,
+            [navsideVars.totalMenuBlockSize ] : `calc(${navsides.menuBlockSize } + (2 * ${navsides.menuMarginBlock }))`,
+            
+            [navsideVars.restMenuInlineSize ] : `calc(${navsideVars.totalMenuInlineSize} - ${navsides.borderRadius})`,
+            [navsideVars.restMenuBlockSize  ] : `calc(${navsideVars.totalMenuBlockSize}  - ${navsides.borderRadius})`,
+        }),
         ...style({
             // layouts:
             display: 'grid',
@@ -119,7 +139,7 @@ export const usesIndicatorLayout = () => {
                 '"..... ....... ....... ........"', `calc(${menuItemOuterHeight} * 3)`,
                 '"..... fill1a  fill1b   corner1"', navsides.borderRadius,
                 '"..... corner2 ....... ........"', navsides.borderRadius,
-                '"..... void3   ....... ........"', menuItemInnerHeight,
+                '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
                 '"..... corner4 ....... ........"', navsides.borderRadius,
                 '"..... fill5a  fill5b   corner5"', navsides.borderRadius,
                 '"..... ....... ....... ........"', 'auto',
@@ -192,16 +212,16 @@ export const usesIndicatorLayout = () => {
                             `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${Math.sin(((step / polygonAccuracy) + 2) * Math.PI/2)})) calc(${navsides.borderWidth} + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${Math.cos(((step / polygonAccuracy) + 2) * Math.PI/2)}))`,
                         ),
                         `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}))`,
-                        `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
+                        `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
                         ...[...new Array(polygonAccuracy)].map((_, step): string =>
-                            `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.sin(((step / polygonAccuracy) + 1) * Math.PI/2)})) calc(${navsides.borderWidth} + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ${menuItemInnerHeight} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.cos(((step / polygonAccuracy) + 1) * Math.PI/2) - 1}))`,
+                            `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.sin(((step / polygonAccuracy) + 1) * Math.PI/2)})) calc(${navsides.borderWidth} + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.cos(((step / polygonAccuracy) + 1) * Math.PI/2) - 1}))`,
                         ),
-                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
-                        `calc(100% - ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
+                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
+                        `calc(100% - ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
                         ...[...new Array(polygonAccuracy)].map((_, step): string =>
-                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos(((step / polygonAccuracy) + 3) * Math.PI/2)})) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${menuItemInnerHeight} + (${navsides.borderRadius} * ${Math.sin(((step / polygonAccuracy) + 3) * Math.PI/2)}))`,
+                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos(((step / polygonAccuracy) + 3) * Math.PI/2)})) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize} + (${navsides.borderRadius} * ${Math.sin(((step / polygonAccuracy) + 3) * Math.PI/2)}))`,
                         ),
-                        `100% calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
+                        `100% calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
                         `100% 100%`,
                         `0 100%`,
                     ].join(','),
