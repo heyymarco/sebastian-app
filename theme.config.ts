@@ -1,5 +1,5 @@
 import { defineTheme, colorValues, borderValues, borderRadiusValues } from '@reusable-ui/core'
-import { iconConfig, indicatorValues, controlValues } from '@reusable-ui/components'
+import { iconConfig, indicatorValues, controlValues, actionControlValues } from '@reusable-ui/components'
 import Color from 'color'
 
 
@@ -8,6 +8,7 @@ import Color from 'color'
 defineTheme('primary',    Color('hsl(222,  8%, 20%)'));
 colorValues.primaryText = Color('hsl(222,  9%, 42%)');
 colorValues.primaryBold = Color('hsl(222,  9%, 42%)');
+colorValues.primaryMild = Color('hsl(222,  9%, 42%)');
 // colorValues.primaryBold = Color('green');
 
 // defineTheme('secondary', 'hsl(28, 30%, 80%)');
@@ -35,6 +36,13 @@ indicatorValues.filterActive = [[
 controlValues.filterArrive = [[
     'brightness(125%)',
     'drop-shadow(0 0 0.01px rgba(0,0,0,0.4))',
+]];
+
+
+
+// actions feedbacks:
+actionControlValues.filterPress = [[
+    'brightness(85%)',
 ]];
 
 
