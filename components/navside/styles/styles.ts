@@ -140,7 +140,7 @@ const usesNavsideUnderlayLayout = () => {
             display: 'grid',
             gridTemplate: [[
                 '"..... ....... ....... ........"', navsides.paddingBlock,
-                '"..... menusC1 .......  menusC2"', navsideVars.menuShiftPos,
+                '"..... ....... ....... ........"', navsideVars.menuShiftPos,
                 '"..... ....... fill1    corner1"', navsides.borderRadius,
                 '"..... corner2 ....... ........"', navsides.borderRadius,
                 '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
@@ -256,7 +256,7 @@ const usesNavsideMenusLayout = () => {
     return style({
         ...style({
             // positions:
-            gridArea: 'menusC1/menusC1/menusC4/menusC4',
+            gridArea: 'corner2/corner2/menusC4/menusC4',
             
             
             
@@ -302,7 +302,7 @@ export const usesNavsideLayout = () => {
             [navsideVars.restMenuBlockSize      ] : `calc(${navsides.menuBlockSize } - (2 * ${navsides.borderRadius}))`,
             
             [navsidePublicVars.menuSelectedIndex] : 1,
-            [navsideVars.menuShiftPos           ] : `calc((${switchOf(navsidePublicVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize}) - ${navsides.borderRadius})`,
+            [navsideVars.menuShiftPos           ] : `calc(${switchOf(navsidePublicVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize})`,
             // ...atGlobal({
             //     ...rule(`@property ${navsidePublicVars.menuSelectedIndex.slice(1, -1)}`, {
             //         // @ts-ignore
@@ -322,7 +322,7 @@ export const usesNavsideLayout = () => {
             display: 'inline-grid',
             gridTemplate: [[
                 '"..... ....... ....... ........"', navsides.paddingBlock,
-                '"..... menusC1 .......  menusC2"', `calc(0px - ${navsides.borderRadius})`,
+                '"..... ....... ....... ........"', `calc(0px - ${navsides.borderRadius})`,
                 '"..... ....... fill1    corner1"', navsides.borderRadius,
                 '"..... corner2 ....... ........"', navsides.borderRadius,
                 '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
