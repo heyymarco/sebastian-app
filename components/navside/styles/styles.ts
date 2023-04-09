@@ -107,7 +107,7 @@ export const usesIndicatorLayout = () => {
     const {paddingRule   , paddingVars   } = usesPadding(navsides);
     
     
-    
+    const polygonAccuracy = 5;
     return style({
         // layouts:
         ...usesBasicLayout(),
@@ -183,6 +183,9 @@ export const usesIndicatorLayout = () => {
                         `0 0`,
                         `100% 0`,
                         `100% calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3))`,
+                        ...[...new Array(polygonAccuracy)].map((_, step): string =>
+                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos(step / polygonAccuracy * Math.PI/2)})) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (${navsides.borderRadius} * ${Math.sin(step / polygonAccuracy * Math.PI/2)}))`,
+                        ),
                         `calc(100% - ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
                         `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
                         `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}))`,
