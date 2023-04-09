@@ -4,8 +4,10 @@ import {
     states,
     style,
     vars,
+    rule,
     children,
     descendants,
+    atGlobal,
     
     
     
@@ -300,7 +302,20 @@ export const usesNavsideLayout = () => {
             [navsideVars.restMenuBlockSize      ] : `calc(${navsides.menuBlockSize } - (2 * ${navsides.borderRadius}))`,
             
             [navsidePublicVars.menuSelectedIndex] : 1,
-            [navsideVars.menuShiftPos           ] : `calc((${switchOf(navsidePublicVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize}) - ${navsides.borderRadius})`
+            [navsideVars.menuShiftPos           ] : `calc((${switchOf(navsidePublicVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize}) - ${navsides.borderRadius})`,
+            // ...atGlobal({
+            //     ...rule(`@property ${navsidePublicVars.menuSelectedIndex.slice(1, -1)}`, {
+            //         // @ts-ignore
+            //         syntax: '"<number>"',
+            //         // @ts-ignore
+            //         inherits: true,
+            //         // @ts-ignore
+            //         initialValue: 0,
+            //     }),
+            // }),
+            // transition: [
+            //     [`${navsidePublicVars.menuSelectedIndex}`.slice(1, -1) as any, '300ms', 'ease-out'],
+            // ],
         }),
         ...style({
             // layouts:
