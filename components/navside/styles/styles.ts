@@ -107,7 +107,7 @@ export const usesIndicatorLayout = () => {
     const {paddingRule   , paddingVars   } = usesPadding(navsides);
     
     
-    const polygonAccuracy = 5;
+    const polygonAccuracy = 10;
     return style({
         // layouts:
         ...usesBasicLayout(),
