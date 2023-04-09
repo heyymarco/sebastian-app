@@ -136,7 +136,20 @@ const usesNavsideUnderlayLayout = () => {
             
             // layouts:
             display: 'grid',
-            gridTemplate: 'inherit',
+            gridTemplate: [[
+                '"..... ....... ....... ........"', navsides.paddingBlock,
+                '"..... menusC1 .......  menusC2"', navsideVars.menuShiftPos,
+                '"..... ....... fill1    corner1"', navsides.borderRadius,
+                '"..... corner2 ....... ........"', navsides.borderRadius,
+                '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
+                '"..... corner4 ....... ........"', navsides.borderRadius,
+                '"..... ......  fill5    corner5"', navsides.borderRadius,
+                '"..... menusC3 .......  menusC4"', 'auto',
+                '"..... ....... ....... ........"', '1fr',
+                '"..... ....... ....... ........"', navsides.paddingBlock,
+                '/',
+                navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
+            ]],
             
             
             
@@ -294,7 +307,7 @@ export const usesNavsideLayout = () => {
             display: 'inline-grid',
             gridTemplate: [[
                 '"..... ....... ....... ........"', navsides.paddingBlock,
-                '"..... menusC1 .......  menusC2"', navsideVars.menuShiftPos,
+                '"..... menusC1 .......  menusC2"', `calc(0px - ${navsides.borderRadius})`,
                 '"..... ....... fill1    corner1"', navsides.borderRadius,
                 '"..... corner2 ....... ........"', navsides.borderRadius,
                 '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
