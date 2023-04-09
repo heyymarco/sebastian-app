@@ -10,6 +10,10 @@ import {
 import {
     BasicProps,
     Basic,
+    
+    List,
+    ListItem,
+    Generic,
 }                           from '@reusable-ui/components'
 
 // styles:
@@ -52,22 +56,38 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
     
     // jsx:
     return (
-        <Basic
-            // other props:
-            {...restBasicProps}
+        <Generic
+            // semantics:
+            tag='nav'
             
             
             
             // classes:
             mainClass={props.mainClass ?? styleSheet.main}
         >
-            <div className='fill1'></div>
-            <div className='corner1'></div>
-            <div className='corner2'></div>
-            <div className='void3'></div>
-            <div className='corner4'></div>
-            <div className='fill5'></div>
-            <div className='corner5'></div>
-        </Basic>
+            <Basic
+                // other props:
+                {...restBasicProps}
+                
+                
+                
+                className='underlay'
+            >
+                <div className='fill1'></div>
+                <div className='corner1'></div>
+                <div className='corner2'></div>
+                <div className='void3'></div>
+                <div className='corner4'></div>
+                <div className='fill5'></div>
+                <div className='corner5'></div>
+            </Basic>
+            {/* <List className='menus' listStyle='flat'>
+                {children}
+            </List> */}
+        </Generic>
     );
+}
+
+export {
+    ListItem as Menu,
 }

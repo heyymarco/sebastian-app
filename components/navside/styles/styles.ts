@@ -112,7 +112,7 @@ const [navsideVars] = cssVars<NavsideVars>();
 // styles:
 const menuItemOuterHeight = '3rem';
 // const menuItemInnerHeight = '1.5rem';
-export const usesIndicatorLayout = () => {
+export const usesNavsideUnderlayLayout = () => {
     // dependencies:
     
     // features:
@@ -120,33 +120,24 @@ export const usesIndicatorLayout = () => {
     const {paddingRule   , paddingVars   } = usesPadding(navsides);
     
     
+    
     const polygonAccuracy = 10;
     return style({
         // layouts:
         ...usesBasicLayout(),
-        ...vars({
-            [navsideVars.totalMenuInlineSize] : `calc(${navsides.menuInlineSize} + (2 * ${navsides.menuMarginInline}))`,
-            [navsideVars.totalMenuBlockSize ] : `calc(${navsides.menuBlockSize } + (2 * ${navsides.menuMarginBlock }))`,
-            
-            [navsideVars.restMenuInlineSize ] : `calc(${navsideVars.totalMenuInlineSize} - ${navsides.borderRadius})`,
-            [navsideVars.restMenuBlockSize  ] : `calc(${navsideVars.totalMenuBlockSize}  - ${navsides.borderRadius})`,
-        }),
         ...style({
+            // positions:
+            gridArea: '1/1/-1/-1',
+            
+            
+            
             // layouts:
             display: 'grid',
-            gridTemplate: [[
-                '"..... ....... ....... ........"', navsides.paddingBlock,
-                '"..... ....... ....... ........"', `calc(${menuItemOuterHeight} * 3)`,
-                '"..... .......  fill1    corner1"', navsides.borderRadius,
-                '"..... corner2 ....... ........"', navsides.borderRadius,
-                '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
-                '"..... corner4 ....... ........"', navsides.borderRadius,
-                '"..... ......  fill5    corner5"', navsides.borderRadius,
-                '"..... ....... ....... ........"', 'auto',
-                '"..... ....... ....... ........"', navsides.paddingBlock,
-                '/',
-                navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
-            ]],
+            gridTemplate: 'inherit',
+            
+            
+            
+            // childrens:
             ...children(['.fill1', '.corner1', '.corner2', '.void3', '.corner4', '.fill5', '.corner5'], {
                 border: 'inherit',
                 position: 'relative',
@@ -230,11 +221,6 @@ export const usesIndicatorLayout = () => {
             
             
             
-            // customize:
-            ...usesCssProps(navsides), // apply config's cssProps
-            
-            
-            
             // borders:
             border                 : borderVars.border,
             borderStartStartRadius : borderVars.borderStartStartRadius,
@@ -248,6 +234,58 @@ export const usesIndicatorLayout = () => {
             paddingInline : 0,
             paddingBlock  : 0,
         }),
+    });
+};
+export const usesNavsideLayout = () => {
+    // dependencies:
+    
+    // features:
+    const {borderRule    , borderVars    } = usesBorder(navsides);
+    const {paddingRule   , paddingVars   } = usesPadding(navsides);
+    
+    
+    
+    return style({
+        ...vars({
+            [navsideVars.totalMenuInlineSize] : `calc(${navsides.menuInlineSize} + (2 * ${navsides.menuMarginInline}))`,
+            [navsideVars.totalMenuBlockSize ] : `calc(${navsides.menuBlockSize } + (2 * ${navsides.menuMarginBlock }))`,
+            
+            [navsideVars.restMenuInlineSize ] : `calc(${navsideVars.totalMenuInlineSize} - ${navsides.borderRadius})`,
+            [navsideVars.restMenuBlockSize  ] : `calc(${navsideVars.totalMenuBlockSize}  - ${navsides.borderRadius})`,
+        }),
+        ...style({
+            // layouts:
+            display: 'inline-grid',
+            gridTemplate: [[
+                '"..... ....... ....... ........"', navsides.paddingBlock,
+                '"..... ....... ....... ......."', `calc(${menuItemOuterHeight} * 3)`,
+                '"..... ....... fill1    corner1"', navsides.borderRadius,
+                '"..... corner2 ....... ........"', navsides.borderRadius,
+                '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
+                '"..... corner4 ....... ........"', navsides.borderRadius,
+                '"..... ......  fill5    corner5"', navsides.borderRadius,
+                '"..... ....... ....... ......."', 'auto',
+                '"..... ....... ....... ........"', navsides.paddingBlock,
+                '/',
+                navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
+            ]],
+            
+            
+            
+            // childrens:
+            ...children('.underlay', usesNavsideUnderlayLayout()),
+            
+            
+            
+            // customize:
+            ...usesCssProps(navsides), // apply config's cssProps
+            
+            
+            
+            // overrides:
+            padding: 0, // moved to `underlay`
+            border: 0, // moved to `underlay`
+        }),
         
         
         
@@ -257,7 +295,7 @@ export const usesIndicatorLayout = () => {
     });
 };
 
-export const usesIndicatorVariants = () => {
+export const usesNavsideVariants = () => {
     // dependencies:
     
     // variants:
@@ -274,8 +312,8 @@ export const usesIndicatorVariants = () => {
 
 export default () => style({
     // layouts:
-    ...usesIndicatorLayout(),
+    ...usesNavsideLayout(),
     
     // variants:
-    ...usesIndicatorVariants(),
+    ...usesNavsideVariants(),
 });

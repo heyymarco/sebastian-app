@@ -1,4 +1,4 @@
-import { Navside } from '@/components/navside/Navside'
+import { Menu, Navside } from '@/components/navside/Navside'
 import Head from 'next/head'
 
 
@@ -13,7 +13,29 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Navside theme='primary' size='lg'></Navside>
+                <Navside theme='primary' size='lg'>
+                    <Menu>
+                        Dashboard
+                    </Menu>
+                    <Menu>
+                        Stock
+                    </Menu>
+                    <Menu>
+                        Requests
+                    </Menu>
+                    <Menu>
+                        Risk
+                    </Menu>
+                    <Menu>
+                        Analitics
+                    </Menu>
+                    <Menu>
+                        Regulations
+                    </Menu>
+                    <Menu>
+                        Widgets
+                    </Menu>
+                </Navside>
             </main>
         </>
     )
