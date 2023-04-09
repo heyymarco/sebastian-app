@@ -99,8 +99,12 @@ import {
 
 
 // vars:
-interface NavsideVars {
+interface NavsidePublicVars {
     menuSelectedIndex  : any
+}
+const [navsidePublicVars] = cssVars<NavsidePublicVars>({ prefix: 'navside', minify: false });
+
+interface NavsideVars {
     menuShiftPos       : any
     
     restMenuInlineSize : any
@@ -279,11 +283,11 @@ export const usesNavsideLayout = () => {
     
     return style({
         ...vars({
-            [navsideVars.restMenuInlineSize ] : `calc(${navsides.menuInlineSize} - (2 * ${navsides.borderRadius}))`,
-            [navsideVars.restMenuBlockSize  ] : `calc(${navsides.menuBlockSize } - (2 * ${navsides.borderRadius}))`,
+            [navsideVars.restMenuInlineSize     ] : `calc(${navsides.menuInlineSize} - (2 * ${navsides.borderRadius}))`,
+            [navsideVars.restMenuBlockSize      ] : `calc(${navsides.menuBlockSize } - (2 * ${navsides.borderRadius}))`,
             
-            [navsideVars.menuSelectedIndex  ] : 1,
-            [navsideVars.menuShiftPos       ] : `calc((${switchOf(navsideVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize}) - ${navsides.borderRadius})`
+            [navsidePublicVars.menuSelectedIndex] : 1,
+            [navsideVars.menuShiftPos           ] : `calc((${switchOf(navsidePublicVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize}) - ${navsides.borderRadius})`
         }),
         ...style({
             // layouts:
