@@ -20,7 +20,7 @@ export default function Home() {
                     <Menu>
                         Stock
                     </Menu>
-                    <Menu>
+                    <Menu active={true}>
                         Requests
                     </Menu>
                     <Menu>

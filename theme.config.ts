@@ -1,22 +1,45 @@
-import { defineTheme, colors, borders, borderRadiuses } from '@reusable-ui/core'
-// import { iconConfig } from '@reusable-ui/components'
+import { defineTheme, colorValues, borderValues, borderRadiusValues } from '@reusable-ui/core'
+import { iconConfig, indicatorValues, controlValues } from '@reusable-ui/components'
+import Color from 'color'
 
 
 
-defineTheme('primary', 'hsl(222,  8%, 20%)');
-colors.primaryText =   'hsl(222,  9%, 42%)' as any;
-colors.primaryBold =   'hsl(222,  9%, 42%)' as any;
-// colors.primaryBold = 'green' as any;
-
-borders.defaultWidth = '2px' as any;
-
-borderRadiuses.sm = '0.75rem'   as any,
-borderRadiuses.md = '1.25rem' as any,
-borderRadiuses.lg = '1.5rem'   as any,
+// color themes:
+defineTheme('primary',    Color('hsl(222,  8%, 20%)'));
+colorValues.primaryText = Color('hsl(222,  9%, 42%)');
+colorValues.primaryBold = Color('hsl(222,  9%, 42%)');
+// colorValues.primaryBold = Color('green');
 
 // defineTheme('secondary', 'hsl(28, 30%, 80%)');
-console.log('color themes registered!');
 
+
+
+// borders & border radiuses:
+borderValues.defaultWidth = '2px';
+
+borderRadiusValues.sm = '0.75rem';
+borderRadiusValues.md = '1.25rem';
+borderRadiusValues.lg = '1.5rem';
+
+
+
+// active/selected/checked components:
+indicatorValues.filterActive = [[
+    'brightness(1.7)',
+    'saturate(6)'
+]];
+
+
+
+// interacting indications:
+controlValues.filterArrive = [[
+    'brightness(125%)',
+    'drop-shadow(0 0 0.01px rgba(0,0,0,0.4))',
+]];
+
+
+
+// shared icons:
 // iconConfig.image.files.push(
 //     { name: 'artswimwear.svg', ratio: '48/40' },
 //     { name: 'scrolldown.svg', ratio: '20/40' },
