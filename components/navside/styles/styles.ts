@@ -137,29 +137,29 @@ export const usesIndicatorLayout = () => {
             gridTemplate: [[
                 '"..... ....... ....... ........"', navsides.paddingBlock,
                 '"..... ....... ....... ........"', `calc(${menuItemOuterHeight} * 3)`,
-                '"..... fill1a  fill1b   corner1"', navsides.borderRadius,
+                '"..... .......  fill1    corner1"', navsides.borderRadius,
                 '"..... corner2 ....... ........"', navsides.borderRadius,
                 '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
                 '"..... corner4 ....... ........"', navsides.borderRadius,
-                '"..... fill5a  fill5b   corner5"', navsides.borderRadius,
+                '"..... ......  fill5    corner5"', navsides.borderRadius,
                 '"..... ....... ....... ........"', 'auto',
                 '"..... ....... ....... ........"', navsides.paddingBlock,
                 '/',
                 navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
             ]],
-            ...children(['.fill1b', '.corner1', '.corner2', '.void3', '.corner4', '.fill5b', '.corner5'], {
+            ...children(['.fill1', '.corner1', '.corner2', '.void3', '.corner4', '.fill5', '.corner5'], {
                 border: 'inherit',
                 position: 'relative',
                 insetInlineStart: navsides.borderWidth,
             }),
-            ...children(['.fill1b', '.corner1'], {
+            ...children(['.fill1', '.corner1'], {
                 insetBlockStart: navsides.borderWidth,
             }),
-            ...children(['.fill5b', '.corner5'], {
+            ...children(['.fill5', '.corner5'], {
                 insetBlockEnd: navsides.borderWidth,
             }),
-            ...children('.fill1b', {
-                gridArea: 'fill1b',
+            ...children('.fill1', {
+                gridArea: 'fill1',
                 borderInline: 0,
                 borderBlockStart: 0,
             }),
@@ -186,8 +186,8 @@ export const usesIndicatorLayout = () => {
                 borderBlockStart: 0,
                 borderEndStartRadius: navsides.borderRadius,
             }),
-            ...children('.fill5b', {
-                gridArea: 'fill5b',
+            ...children('.fill5', {
+                gridArea: 'fill5',
                 borderInline: 0,
                 borderBlockEnd: 0,
             }),
