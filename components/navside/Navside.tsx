@@ -95,6 +95,11 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
                 
                 // classes:
                 className='menus'
+                
+                
+                
+                // behaviors:
+                actionCtrl={true}
             >
                 {children}
             </List>

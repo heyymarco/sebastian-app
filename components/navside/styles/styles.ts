@@ -100,9 +100,6 @@ import {
 
 // vars:
 interface NavsideVars {
-    totalMenuInlineSize : any
-    totalMenuBlockSize  : any
-    
     restMenuInlineSize : any
     restMenuBlockSize  : any
 }
@@ -280,11 +277,8 @@ export const usesNavsideLayout = () => {
     
     return style({
         ...vars({
-            [navsideVars.totalMenuInlineSize] : `calc(${navsides.menuInlineSize} + (2 * ${navsides.menuPaddingInline}))`,
-            [navsideVars.totalMenuBlockSize ] : `calc(${navsides.menuBlockSize } + (2 * ${navsides.menuPaddingBlock }))`,
-            
-            [navsideVars.restMenuInlineSize ] : `calc(${navsideVars.totalMenuInlineSize} - ${navsides.borderRadius})`,
-            [navsideVars.restMenuBlockSize  ] : `calc(${navsideVars.totalMenuBlockSize}  - ${navsides.borderRadius})`,
+            [navsideVars.restMenuInlineSize ] : `calc(${navsides.menuInlineSize} - ${navsides.borderRadius})`,
+            [navsideVars.restMenuBlockSize  ] : `calc(${navsides.menuBlockSize } - ${navsides.borderRadius})`,
         }),
         ...style({
             // layouts:
