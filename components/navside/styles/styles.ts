@@ -184,7 +184,7 @@ export const usesIndicatorLayout = () => {
                         `100% 0`,
                         `100% calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3))`,
                         ...[...new Array(polygonAccuracy)].map((_, step): string =>
-                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos(step / polygonAccuracy * Math.PI/2)})) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (${navsides.borderRadius} * ${Math.sin(step / polygonAccuracy * Math.PI/2)}))`,
+                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos((step / polygonAccuracy) * Math.PI/2)})) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (${navsides.borderRadius} * ${Math.sin((step / polygonAccuracy) * Math.PI/2)}))`,
                         ),
                         `calc(100% - ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
                         `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
@@ -192,6 +192,9 @@ export const usesIndicatorLayout = () => {
                         `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
                         `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
                         `calc(100% - ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
+                        ...[...new Array(polygonAccuracy)].map((_, step): string =>
+                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos(((step / polygonAccuracy) + 3) * Math.PI/2)})) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${menuItemInnerHeight} + (${navsides.borderRadius} * ${Math.sin(((step / polygonAccuracy) + 3) * Math.PI/2)}))`,
+                        ),
                         `100% calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${menuItemInnerHeight})`,
                         `100% 100%`,
                         `0 100%`,
