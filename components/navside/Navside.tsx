@@ -1,4 +1,4 @@
-import {default as React} from 'react'
+import {default as React, useState} from 'react'
 
 // cssfn:
 import {
@@ -18,6 +18,7 @@ import {
 
 // styles:
 import navsideStyleSheet    from './styles/styles'
+import { navsidePublicVars } from './styles/vars';
 
 
 
@@ -54,6 +55,11 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
     
     
     
+    // states:
+    const [menuSelectedIndex, setMenuSelectedIndex] = useState<number>(0)
+    
+    
+    
     // jsx:
     return (
         <Generic
@@ -64,6 +70,9 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
             
             // classes:
             mainClass={props.mainClass ?? styleSheet.main}
+            style={{
+                [navsidePublicVars.menuSelectedIndex.slice(4, -1)]: 3,
+            }}
         >
             <Basic
                 // other props:

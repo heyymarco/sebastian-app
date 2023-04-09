@@ -1,13 +1,9 @@
 // cssfn:
 import {
     // writes css in javascript:
-    states,
     style,
     vars,
-    rule,
     children,
-    descendants,
-    atGlobal,
     
     
     
@@ -24,28 +20,8 @@ import {
 
 // reusable-ui core:
 import {
-    // background stuff of UI:
-    usesBackground,
-    
-    
-    
-    // foreground (text color) stuff of UI:
-    usesForeground,
-    
-    
-    
     // border (stroke) stuff of UI:
     usesBorder,
-    
-    
-    
-    // ring (focus indicator) color of UI:
-    usesRing,
-    
-    
-    
-    // animation stuff of UI:
-    usesAnimation,
     
     
     
@@ -56,37 +32,11 @@ import {
     
     // size options of UI:
     usesResizable,
-    
-    
-    
-    // color options of UI:
-    usesThemable,
-    
-    
-    
-    // gradient variant of UI:
-    usesGradientable,
-    
-    
-    
-    // outlined (background-less) variant of UI:
-    usesOutlineable,
-    
-    
-    
-    // mild (soft color) variant of UI:
-    usesMildable,
-    
-    
-    
-    // nude variant of UI:
-    usesNudible,
 }                           from '@reusable-ui/core'            // a set of reusable-ui packages which are responsible for building any component
 
 // reusable-ui components:
 import {
     // styles:
-    onBasicStylesChange,
     usesBasicLayout,
     usesBasicVariants,
 }                           from '@reusable-ui/basic'           // a base component
@@ -94,18 +44,17 @@ import {
 // internals:
 import {
     // configs:
-    navsides, navsideValues,
+    navsides,
 // }                           from './config.js'   /* when exported to external package */
 }                           from './config'         /* when inside nextJs app */
+import {
+    // vars:
+    navsidePublicVars,
+}                           from './vars'
 
 
 
 // vars:
-interface NavsidePublicVars {
-    menuSelectedIndex  : any
-}
-const [navsidePublicVars] = cssVars<NavsidePublicVars>({ prefix: 'navside', minify: false });
-
 interface NavsideVars {
     menuShiftPos       : any
     
@@ -301,7 +250,7 @@ export const usesNavsideLayout = () => {
             [navsideVars.restMenuInlineSize     ] : `calc(${navsides.menuInlineSize} - (2 * ${navsides.borderRadius}))`,
             [navsideVars.restMenuBlockSize      ] : `calc(${navsides.menuBlockSize } - (2 * ${navsides.borderRadius}))`,
             
-            [navsidePublicVars.menuSelectedIndex] : 1,
+            // [navsidePublicVars.menuSelectedIndex] : 1,
             [navsideVars.menuShiftPos           ] : `calc(${switchOf(navsidePublicVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize})`,
             // ...atGlobal({
             //     ...rule(`@property ${navsidePublicVars.menuSelectedIndex.slice(1, -1)}`, {
