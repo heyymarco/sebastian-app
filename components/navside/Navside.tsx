@@ -81,7 +81,21 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
                 <div className='fill5'></div>
                 <div className='corner5'></div>
             </Basic>
-            <List className='menus' listStyle='flat'>
+            <List
+                // other props:
+                {...restBasicProps}
+                
+                
+                
+                // variants:
+                mild={false}
+                listStyle='flat'
+                
+                
+                
+                // classes:
+                className='menus'
+            >
                 {children}
             </List>
         </Generic>

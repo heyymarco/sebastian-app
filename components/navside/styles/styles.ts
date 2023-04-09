@@ -235,8 +235,17 @@ const usesNavsideUnderlayLayout = () => {
 };
 const usesNavsideMenusLayout = () => {
     return style({
-        // positions:
-        gridArea: 'menusC1/menusC1/menusC4/menusC4',
+        ...style({
+            // positions:
+            gridArea: 'menusC1/menusC1/menusC4/menusC4',
+            
+            
+            
+            // children:
+            ...children('li>div', {
+                background: 'transparent',
+            }),
+        }),
     });
 };
 export const usesNavsideLayout = () => {

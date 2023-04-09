@@ -5,8 +5,8 @@ import { defineTheme, colors, borders, borderRadiuses } from '@reusable-ui/core'
 
 defineTheme('primary', 'hsl(222,  8%, 20%)');
 colors.primaryText =   'hsl(222,  9%, 42%)' as any;
-// colors.primaryBold =   'hsl(222,  9%, 42%)' as any;
-colors.primaryBold = 'green' as any;
+colors.primaryBold =   'hsl(222,  9%, 42%)' as any;
+// colors.primaryBold = 'green' as any;
 
 borders.defaultWidth = '5px' as any;
 
