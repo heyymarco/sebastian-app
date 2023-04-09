@@ -258,21 +258,13 @@ const usesNavsideMenusLayout = () => {
                 
                 
                 // sizes:
+                flex: [[1, 1, 'auto']], // growable, shrinkable, initial from it's width
                 boxSizing: 'border-box',
                 
                 
                 
                 // customize:
                 ...usesCssProps(usesPrefixedProps(navsides, 'menu')), // apply config's cssProps starting with menu***
-                
-                
-                
-                // overrides:
-                ...style({
-                    // spacings:
-                    margin: 0,
-                    padding: 0,
-                })
             }),
         }),
     });
