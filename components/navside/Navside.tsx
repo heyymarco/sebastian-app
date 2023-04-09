@@ -61,7 +61,13 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
             // classes:
             mainClass={props.mainClass ?? styleSheet.main}
         >
-            <p>test</p>
+            <div className='fill1b'></div>
+            <div className='corner1'></div>
+            <div className='corner2'></div>
+            <div className='void3'></div>
+            <div className='corner4'></div>
+            <div className='fill5b'></div>
+            <div className='corner5'></div>
         </Basic>
     );
 }

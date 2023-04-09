@@ -3,6 +3,8 @@ import {
     // writes css in javascript:
     states,
     style,
+    children,
+    descendants,
     
     
     
@@ -125,6 +127,57 @@ export const usesIndicatorLayout = () => {
                 '/',
                 navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
             ]],
+            ...children(['.fill1b', '.corner1', '.corner2', '.void3', '.corner4', '.fill5b', '.corner5'], {
+                background: 'red',
+                border: 'inherit',
+                position: 'relative',
+                insetInlineStart: navsides.borderWidth,
+            }),
+            ...children(['.fill1b', '.corner1'], {
+                insetBlockStart: navsides.borderWidth,
+            }),
+            ...children(['.fill5b', '.corner5'], {
+                insetBlockEnd: navsides.borderWidth,
+            }),
+            ...children('.fill1b', {
+                gridArea: 'fill1b',
+                borderInline: 0,
+                borderBlockStart: 0,
+            }),
+            ...children('.corner1', {
+                gridArea: 'corner1',
+                borderInlineStart: 0,
+                borderBlockStart: 0,
+                borderEndEndRadius: navsides.borderRadius,
+            }),
+            ...children('.corner2', {
+                gridArea: 'corner2',
+                borderInlineEnd: 0,
+                borderBlockEnd: 0,
+                borderStartStartRadius: navsides.borderRadius,
+            }),
+            ...children('.void3', {
+                gridArea: 'void3',
+                borderInlineEnd: 0,
+                borderBlock: 0,
+            }),
+            ...children('.corner4', {
+                gridArea: 'corner4',
+                borderInlineEnd: 0,
+                borderBlockStart: 0,
+                borderEndStartRadius: navsides.borderRadius,
+            }),
+            ...children('.fill5b', {
+                gridArea: 'fill5b',
+                borderInline: 0,
+                borderBlockEnd: 0,
+            }),
+            ...children('.corner5', {
+                gridArea: 'corner5',
+                borderInlineStart: 0,
+                borderBlockEnd: 0,
+                borderStartEndRadius: navsides.borderRadius,
+            }),
             
             
             
@@ -143,8 +196,8 @@ export const usesIndicatorLayout = () => {
             
             
             // spacings:
-            paddingInline : paddingVars.paddingInline,
-            paddingBlock  : paddingVars.paddingBlock,
+            paddingInline : 0,
+            paddingBlock  : 0,
         }),
         
         
