@@ -8,7 +8,7 @@ colors.primaryText =   'hsl(222,  9%, 42%)' as any;
 // colors.primaryBold =   'hsl(222,  9%, 42%)' as any;
 colors.primaryBold = 'green' as any;
 
-borders.defaultWidth = '2px' as any;
+borders.defaultWidth = '5px' as any;
 
 borderRadiuses.sm = '0.75rem'   as any,
 borderRadiuses.md = '1.25rem' as any,

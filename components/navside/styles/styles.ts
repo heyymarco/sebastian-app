@@ -222,15 +222,13 @@ export const usesNavsideUnderlayLayout = () => {
             
             
             // borders:
-            border                 : borderVars.border,
-            borderStartStartRadius : borderVars.borderStartStartRadius,
-            borderStartEndRadius   : borderVars.borderStartEndRadius,
-            borderEndStartRadius   : borderVars.borderEndStartRadius,
-            borderEndEndRadius     : borderVars.borderEndEndRadius,
+            border       : borderVars.border,
+            borderRadius : 'inherit',
             
             
             
             // spacings:
+            margin        : `calc(0px - ${borderVars.borderWidth})`,
             paddingInline : 0,
             paddingBlock  : 0,
         }),
@@ -282,9 +280,12 @@ export const usesNavsideLayout = () => {
             
             
             
-            // overrides:
-            padding: 0, // moved to `underlay`
-            border: 0, // moved to `underlay`
+            // borders:
+            border                 : borderVars.border,
+            borderStartStartRadius : borderVars.borderStartStartRadius,
+            borderStartEndRadius   : borderVars.borderStartEndRadius,
+            borderEndStartRadius   : borderVars.borderEndStartRadius,
+            borderEndEndRadius     : borderVars.borderEndEndRadius,
         }),
         
         
@@ -292,6 +293,19 @@ export const usesNavsideLayout = () => {
         // features:
         ...borderRule(),     // must be placed at the last
         ...paddingRule(),    // must be placed at the last
+        
+        
+        
+        // overrides:
+        ...style({
+            // borders:
+            borderColor: 'transparent',
+            
+            
+            
+            // spacings:
+            padding: 0, // moved to `underlay`
+        }),
     });
 };
 
