@@ -1,6 +1,10 @@
-import { Menu, Navside } from '@/components/navside/Navside'
+import { Menu, Navside, navsideValues } from '@/components/navside/index'
 import { Icon } from '@reusable-ui/components'
 import Head from 'next/head'
+
+
+
+navsideValues.minBlockSize = '40rem';
 
 
 

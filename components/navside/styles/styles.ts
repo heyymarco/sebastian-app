@@ -301,6 +301,7 @@ export const usesNavsideLayout = () => {
                 '"..... corner4 ....... ........"', navsides.borderRadius,
                 '"..... ......  fill5    corner5"', navsides.borderRadius,
                 '"..... menusC3 .......  menusC4"', 'auto',
+                '"..... ....... ....... ........"', '1fr',
                 '"..... ....... ....... ........"', navsides.paddingBlock,
                 '/',
                 navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
