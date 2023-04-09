@@ -11,6 +11,7 @@ import {
     
     // reads/writes css variables configuration:
     usesCssProps,
+    usesPrefixedProps,
     
     
     
@@ -243,7 +244,35 @@ const usesNavsideMenusLayout = () => {
             
             // children:
             ...children('li>div', {
+                // layouts:
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'start',
+                alignItems: 'center',
+                
+                
+                
+                // backgrounds:
                 background: 'transparent',
+                
+                
+                
+                // sizes:
+                boxSizing: 'border-box',
+                
+                
+                
+                // customize:
+                ...usesCssProps(usesPrefixedProps(navsides, 'menu')), // apply config's cssProps starting with menu***
+                
+                
+                
+                // overrides:
+                ...style({
+                    // spacings:
+                    margin: 0,
+                    padding: 0,
+                })
             }),
         }),
     });

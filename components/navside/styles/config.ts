@@ -38,8 +38,8 @@ export const [navsides, navsideValues, cssNavsideConfig] = cssConfig(() => {
         
         
         // sizes:
-        inlineSize           : '14rem',
-        blockSize            : '30rem',
+        // inlineSize           : '14rem',
+        // blockSize            : '30rem',
         
         
         
