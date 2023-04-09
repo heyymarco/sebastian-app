@@ -128,7 +128,6 @@ export const usesIndicatorLayout = () => {
                 navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
             ]],
             ...children(['.fill1b', '.corner1', '.corner2', '.void3', '.corner4', '.fill5b', '.corner5'], {
-                background: 'red',
                 border: 'inherit',
                 position: 'relative',
                 insetInlineStart: navsides.borderWidth,
