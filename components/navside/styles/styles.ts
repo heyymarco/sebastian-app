@@ -92,7 +92,7 @@ import {
 // internals:
 import {
     // configs:
-    navsides,
+    navsides, navsideValues,
 // }                           from './config.js'   /* when exported to external package */
 }                           from './config'         /* when inside nextJs app */
 
@@ -100,6 +100,9 @@ import {
 
 // vars:
 interface NavsideVars {
+    menuSelectedIndex  : any
+    menuShiftPos       : any
+    
     restMenuInlineSize : any
     restMenuBlockSize  : any
 }
@@ -108,7 +111,6 @@ const [navsideVars] = cssVars<NavsideVars>();
 
 
 // styles:
-const menuItemOuterHeight = '3rem';
 // const menuItemInnerHeight = '1.5rem';
 const usesNavsideUnderlayLayout = () => {
     // dependencies:
@@ -190,26 +192,26 @@ const usesNavsideUnderlayLayout = () => {
                     [
                         `0 0`,
                         `100% 0`,
-                        `100% calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3))`,
+                        `100% calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + ${navsideVars.menuShiftPos})`,
                         ...[...new Array(polygonAccuracy)].map((_, step): string =>
-                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos((step / polygonAccuracy) * Math.PI/2)})) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (${navsides.borderRadius} * ${Math.sin((step / polygonAccuracy) * Math.PI/2)}))`,
+                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos((step / polygonAccuracy) * Math.PI/2)})) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (${navsides.borderRadius} * ${Math.sin((step / polygonAccuracy) * Math.PI/2)}))`,
                         ),
-                        `calc(100% - ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
-                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
+                        `calc(100% - ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + ${navsides.borderRadius})`,
+                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + ${navsides.borderRadius})`,
                         ...[...new Array(polygonAccuracy)].map((_, step): string =>
-                            `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${Math.sin(((step / polygonAccuracy) + 2) * Math.PI/2)})) calc(${navsides.borderWidth} + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${Math.cos(((step / polygonAccuracy) + 2) * Math.PI/2)}))`,
+                            `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${Math.sin(((step / polygonAccuracy) + 2) * Math.PI/2)})) calc(${navsides.borderWidth} + ${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (2 * ${navsides.borderRadius}) + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${Math.cos(((step / polygonAccuracy) + 2) * Math.PI/2)}))`,
                         ),
-                        `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}))`,
-                        `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
+                        `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (2 * ${navsides.borderRadius}))`,
+                        `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline}) calc(${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (2 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
                         ...[...new Array(polygonAccuracy)].map((_, step): string =>
-                            `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.sin(((step / polygonAccuracy) + 1) * Math.PI/2)})) calc(${navsides.borderWidth} + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (2 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.cos(((step / polygonAccuracy) + 1) * Math.PI/2) - 1}))`,
+                            `calc((${navsides.borderWidth} * 3) + ${navsides.paddingInline} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.sin(((step / polygonAccuracy) + 1) * Math.PI/2)})) calc(${navsides.borderWidth} + ${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (2 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize} + ((${navsides.borderRadius} - ${navsides.borderWidth}) * ${1 - Math.cos(((step / polygonAccuracy) + 1) * Math.PI/2) - 1}))`,
                         ),
-                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
-                        `calc(100% - ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (3 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
+                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline} + ${navsides.borderRadius}) calc(${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (3 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
+                        `calc(100% - ${navsides.borderRadius}) calc(${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (3 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
                         ...[...new Array(polygonAccuracy)].map((_, step): string =>
-                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos(((step / polygonAccuracy) + 3) * Math.PI/2)})) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize} + (${navsides.borderRadius} * ${Math.sin(((step / polygonAccuracy) + 3) * Math.PI/2)}))`,
+                            `calc(100% - ${navsides.borderRadius} + (${navsides.borderRadius} * ${Math.cos(((step / polygonAccuracy) + 3) * Math.PI/2)})) calc(${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (4 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize} + (${navsides.borderRadius} * ${Math.sin(((step / polygonAccuracy) + 3) * Math.PI/2)}))`,
                         ),
-                        `100% calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + (4 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
+                        `100% calc(${navsides.paddingBlock} + ${navsideVars.menuShiftPos} + (4 * ${navsides.borderRadius}) + ${navsideVars.restMenuBlockSize})`,
                         `100% 100%`,
                         `0 100%`,
                     ].join(','),
@@ -277,15 +279,18 @@ export const usesNavsideLayout = () => {
     
     return style({
         ...vars({
-            [navsideVars.restMenuInlineSize ] : `calc(${navsides.menuInlineSize} - ${navsides.borderRadius})`,
-            [navsideVars.restMenuBlockSize  ] : `calc(${navsides.menuBlockSize } - ${navsides.borderRadius})`,
+            [navsideVars.restMenuInlineSize ] : `calc(${navsides.menuInlineSize} - (2 * ${navsides.borderRadius}))`,
+            [navsideVars.restMenuBlockSize  ] : `calc(${navsides.menuBlockSize } - (2 * ${navsides.borderRadius}))`,
+            
+            [navsideVars.menuSelectedIndex  ] : 1,
+            [navsideVars.menuShiftPos       ] : `calc((${switchOf(navsideVars.menuSelectedIndex, 0)} * ${navsides.menuBlockSize}) - ${navsides.borderRadius})`
         }),
         ...style({
             // layouts:
             display: 'inline-grid',
             gridTemplate: [[
                 '"..... ....... ....... ........"', navsides.paddingBlock,
-                '"..... menusC1 .......  menusC2"', `calc(${menuItemOuterHeight} * 3)`,
+                '"..... menusC1 .......  menusC2"', navsideVars.menuShiftPos,
                 '"..... ....... fill1    corner1"', navsides.borderRadius,
                 '"..... corner2 ....... ........"', navsides.borderRadius,
                 '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
