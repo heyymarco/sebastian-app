@@ -15,6 +15,9 @@ export default function Home() {
             </Head>
             <main>
                 <Navside theme='primary' size='lg'>
+                    <Menu actionCtrl={false}>
+                        My Logo
+                    </Menu>
                     <Menu>
                         <Icon icon='dashboard' /> Dashboard
                     </Menu>
