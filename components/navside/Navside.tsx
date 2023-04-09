@@ -18,10 +18,9 @@ import {
     BasicProps,
     Basic,
     
+    List,
+    ListItem,
     Generic,
-    
-    Nav,
-    NavItem,
     
     ListItemProps,
     ListItemComponentProps,
@@ -185,7 +184,7 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
                 <div className='fill5'></div>
                 <div className='corner5'></div>
             </Basic>
-            <Nav
+            <List
                 // other props:
                 {...restBasicProps}
                 
@@ -254,11 +253,11 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
                         />
                     );
                 })}
-            </Nav>
+            </List>
         </Generic>
     );
 }
 
 export {
-    NavItem as Menu,
+    ListItem as Menu,
 }
