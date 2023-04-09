@@ -55,13 +55,13 @@ export const [navsides, navsideValues, cssNavsideConfig] = cssConfig(() => {
         
         // menus:
         menuInlineSize       : '14rem',
-        menuBlockSize        : '2rem',
+        menuBlockSize        : '3.5rem',
         
-        menuMarginInline     : [['calc(', borderRadiuses.md, '* 0.5)']] as CssKnownProps['borderRadius'],
-        menuMarginInlineSm   : [['calc(', borderRadiuses.sm, '* 0.5)']] as CssKnownProps['borderRadius'],
-        menuMarginInlineLg   : [['calc(', borderRadiuses.lg, '* 0.5)']] as CssKnownProps['borderRadius'],
-        menuMarginBlock      : [['calc(', borderRadiuses.md, '* 0.5)']] as CssKnownProps['borderRadius'],
-        menuMarginBlockSm    : [['calc(', borderRadiuses.sm, '* 0.5)']] as CssKnownProps['borderRadius'],
-        menuMarginBlockLg    : [['calc(', borderRadiuses.lg, '* 0.5)']] as CssKnownProps['borderRadius'],
+        menuPaddingInline     : [['calc(', borderRadiuses.md, '* 0.5)']] as CssKnownProps['borderRadius'],
+        menuPaddingInlineSm   : [['calc(', borderRadiuses.sm, '* 0.5)']] as CssKnownProps['borderRadius'],
+        menuPaddingInlineLg   : [['calc(', borderRadiuses.lg, '* 0.5)']] as CssKnownProps['borderRadius'],
+        menuPaddingBlock      : [['calc(', borderRadiuses.md, '* 0.5)']] as CssKnownProps['borderRadius'],
+        menuPaddingBlockSm    : [['calc(', borderRadiuses.sm, '* 0.5)']] as CssKnownProps['borderRadius'],
+        menuPaddingBlockLg    : [['calc(', borderRadiuses.lg, '* 0.5)']] as CssKnownProps['borderRadius'],
     };
 }, { prefix: 'navs' });

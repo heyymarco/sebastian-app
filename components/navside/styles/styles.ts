@@ -247,7 +247,7 @@ const usesNavsideMenusLayout = () => {
                 // layouts:
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'start',
+                justifyContent: 'stretch',
                 alignItems: 'center',
                 
                 
@@ -288,8 +288,8 @@ export const usesNavsideLayout = () => {
     
     return style({
         ...vars({
-            [navsideVars.totalMenuInlineSize] : `calc(${navsides.menuInlineSize} + (2 * ${navsides.menuMarginInline}))`,
-            [navsideVars.totalMenuBlockSize ] : `calc(${navsides.menuBlockSize } + (2 * ${navsides.menuMarginBlock }))`,
+            [navsideVars.totalMenuInlineSize] : `calc(${navsides.menuInlineSize} + (2 * ${navsides.menuPaddingInline}))`,
+            [navsideVars.totalMenuBlockSize ] : `calc(${navsides.menuBlockSize } + (2 * ${navsides.menuPaddingBlock }))`,
             
             [navsideVars.restMenuInlineSize ] : `calc(${navsideVars.totalMenuInlineSize} - ${navsides.borderRadius})`,
             [navsideVars.restMenuBlockSize  ] : `calc(${navsideVars.totalMenuBlockSize}  - ${navsides.borderRadius})`,
