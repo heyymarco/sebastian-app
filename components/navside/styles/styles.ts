@@ -112,12 +112,11 @@ const [navsideVars] = cssVars<NavsideVars>();
 // styles:
 const menuItemOuterHeight = '3rem';
 // const menuItemInnerHeight = '1.5rem';
-export const usesNavsideUnderlayLayout = () => {
+const usesNavsideUnderlayLayout = () => {
     // dependencies:
     
     // features:
-    const {borderRule    , borderVars    } = usesBorder(navsides);
-    const {paddingRule   , paddingVars   } = usesPadding(navsides);
+    const {borderVars} = usesBorder();
     
     
     
@@ -234,12 +233,18 @@ export const usesNavsideUnderlayLayout = () => {
         }),
     });
 };
+const usesNavsideMenusLayout = () => {
+    return style({
+        // positions:
+        gridArea: 'menusC1/menusC1/menusC4/menusC4',
+    });
+};
 export const usesNavsideLayout = () => {
     // dependencies:
     
     // features:
-    const {borderRule    , borderVars    } = usesBorder(navsides);
-    const {paddingRule   , paddingVars   } = usesPadding(navsides);
+    const {borderRule , borderVars} = usesBorder(navsides);
+    const {paddingRule            } = usesPadding(navsides);
     
     
     
@@ -256,13 +261,13 @@ export const usesNavsideLayout = () => {
             display: 'inline-grid',
             gridTemplate: [[
                 '"..... ....... ....... ........"', navsides.paddingBlock,
-                '"..... ....... ....... ......."', `calc(${menuItemOuterHeight} * 3)`,
+                '"..... menusC1 .......  menusC2"', `calc(${menuItemOuterHeight} * 3)`,
                 '"..... ....... fill1    corner1"', navsides.borderRadius,
                 '"..... corner2 ....... ........"', navsides.borderRadius,
                 '"..... void3   ....... ........"', navsideVars.restMenuBlockSize,
                 '"..... corner4 ....... ........"', navsides.borderRadius,
                 '"..... ......  fill5    corner5"', navsides.borderRadius,
-                '"..... ....... ....... ......."', 'auto',
+                '"..... menusC3 .......  menusC4"', 'auto',
                 '"..... ....... ....... ........"', navsides.paddingBlock,
                 '/',
                 navsides.paddingInline, navsides.borderRadius, 'auto', navsides.borderRadius,
@@ -272,6 +277,7 @@ export const usesNavsideLayout = () => {
             
             // childrens:
             ...children('.underlay', usesNavsideUnderlayLayout()),
+            ...children('.menus', usesNavsideMenusLayout()),
             
             
             

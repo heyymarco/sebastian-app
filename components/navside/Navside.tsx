@@ -81,9 +81,9 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
                 <div className='fill5'></div>
                 <div className='corner5'></div>
             </Basic>
-            {/* <List className='menus' listStyle='flat'>
+            <List className='menus' listStyle='flat'>
                 {children}
-            </List> */}
+            </List>
         </Generic>
     );
 }
