@@ -178,6 +178,22 @@ export const usesIndicatorLayout = () => {
                 borderBlockEnd: 0,
                 borderStartEndRadius: navsides.borderRadius,
             }),
+            clipPath: [
+                [`polygon(`,
+                    [
+                        `0 0`,
+                        `100% 0`,
+                        `100% calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3))`,
+                        `calc(100% - ${navsides.borderRadius}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
+                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline}) calc((${navsides.borderWidth} * 2) + ${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius})`,
+                        `calc((${navsides.borderWidth} * 2) + ${navsides.paddingInline}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius} + ${menuItemInnerHeight} + (2 * ${navsides.borderRadius}))`,
+                        `calc(100% - ${navsides.borderRadius}) calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius} + ${menuItemInnerHeight} + (2 * ${navsides.borderRadius}))`,
+                        `100% calc(${navsides.paddingBlock} + calc(${menuItemOuterHeight} * 3) + ${navsides.borderRadius} + ${menuItemInnerHeight} + (3 * ${navsides.borderRadius}))`,
+                        `100% 100%`,
+                        `0 100%`,
+                    ].join(','),
+                `)`],
+            ],
             
             
             
