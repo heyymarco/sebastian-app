@@ -1,4 +1,5 @@
 import { Menu, Navside } from '@/components/navside/Navside'
+import { Icon } from '@reusable-ui/components'
 import Head from 'next/head'
 
 
@@ -15,25 +16,25 @@ export default function Home() {
             <main>
                 <Navside theme='primary' size='lg'>
                     <Menu>
-                        Dashboard
+                        <Icon icon='dashboard' /> Dashboard
                     </Menu>
                     <Menu>
-                        Stock
+                        <Icon icon='inventory' /> Stock
                     </Menu>
                     <Menu active={true}>
-                        Requests
+                        <Icon icon='fact_check' /> Requests
                     </Menu>
                     <Menu>
-                        Risk
+                        <Icon icon='shield' /> Risk
                     </Menu>
                     <Menu>
-                        Analitics
+                        <Icon icon='analytics' /> Analitics
                     </Menu>
                     <Menu>
-                        Regulations
+                        <Icon icon='menu_book' /> Regulations
                     </Menu>
                     <Menu>
-                        Widgets
+                        <Icon icon='widgets' /> Widgets
                     </Menu>
                 </Navside>
             </main>
