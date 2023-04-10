@@ -26,6 +26,11 @@ import {
 // configs:
 export const [navsides, navsideValues, cssNavsideConfig] = cssConfig(() => {
     return {
+        // backgrounds & shadows:
+        dropShadow           : 'drop-shadow(0 0 10px rgba(0,0,0,0.75))' as string,
+        
+        
+        
         // borders:
         borderStyle          : borders.style        as CssKnownProps['borderStyle' ],
         borderWidth          : borders.defaultWidth as CssKnownProps['borderWidth' ],

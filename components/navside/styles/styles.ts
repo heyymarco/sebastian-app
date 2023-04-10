@@ -286,6 +286,13 @@ export const usesNavsideLayout = () => {
             
             
             
+            // backgrounds:
+            filter: [[
+                navsides.dropShadow,
+            ]],
+            
+            
+            
             // childrens:
             ...children('.underlay', usesNavsideUnderlayLayout()),
             ...children('.menus', usesNavsideMenusLayout()),
