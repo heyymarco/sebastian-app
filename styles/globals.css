@@ -8,5 +8,6 @@
 body {
   min-block-size: 100dvh;
   background-image: url('/soft-rainbow.svg');
-  padding: 6rem;
+  padding-inline: 12rem;
+  padding-block: 6rem;
 }
