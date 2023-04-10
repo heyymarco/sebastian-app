@@ -50,6 +50,30 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
     
     // rest props:
     const {
+        // refs:
+        elmRef,
+        outerRef,
+        
+        
+        
+        // identifiers:
+        id,
+        
+        
+        
+        // styles:
+        style,
+        
+        
+        
+        // classes:
+        classes,
+        variantClasses,
+        stateClasses,
+        className,
+        
+        
+        
         // children:
         children,
     ...restBasicProps} = props;
@@ -70,16 +94,35 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
     // jsx:
     return (
         <Generic
+            // refs:
+            outerRef={outerRef}
+            
+            
+            
             // semantics:
             tag='nav'
             
             
             
-            // classes:
-            mainClass={props.mainClass ?? styleSheet.main}
+            // identifiers:
+            id={id}
+            
+            
+            
+            // styles:
             style={{
                 [navsidePublicVars.menuSelectedIndex.slice(4, -1)]: menuSelectedIndex,
+                ...style,
             }}
+            
+            
+            
+            // classes:
+            mainClass={props.mainClass ?? styleSheet.main}
+            classes={classes}
+            variantClasses={variantClasses}
+            stateClasses={stateClasses}
+            className={className}
         >
             <Basic
                 // other props:
@@ -100,6 +143,11 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
             <List
                 // other props:
                 {...restBasicProps}
+                
+                
+                
+                // refs:
+                elmRef={elmRef}
                 
                 
                 

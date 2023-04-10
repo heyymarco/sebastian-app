@@ -1,15 +1,19 @@
+import styles from '@/styles/Home.module.css'
+
 import { useState } from 'react'
 import Head from 'next/head'
 
 import { Navside, Menu } from '@/components/navside'
-import { Icon } from '@reusable-ui/components'
+import { ThemeName } from '@reusable-ui/core'
+import { Icon, Group, Label, Radio, Range } from '@reusable-ui/components'
+import { borderValues, borderRadiusValues } from '@reusable-ui/core'
 
 
 
 export default function Home() {
     // states:
     const [activeMenu, setActiveMenu] = useState<string>('dashboard');
-    
+    const [theme, setTheme] = useState<ThemeName>('primary');
     
     
     return (
@@ -20,8 +24,8 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-                <Navside theme='primary' size='lg'>
+            <main className={styles.page}>
+                <Navside className={styles.theComponent} theme={theme} size='md'>
                     <Menu actionCtrl={false}>
                         My Logo
                     </Menu>
@@ -47,6 +51,32 @@ export default function Home() {
                         <Icon icon='widgets' /> Widgets
                     </Menu>
                 </Navside>
+                
+                
+                <Group className={styles.theThemes}>
+                    <Label>
+                        Theme:
+                    </Label>
+                    {['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'].map((themeOpt) =>
+                        <Radio key={themeOpt} name='theme' theme={themeOpt} active={theme === themeOpt} onClick={() => setTheme(themeOpt)} nude={false} />
+                    )}
+                </Group>
+                
+                
+                <Group className={styles.theCorners} theme='primary'>
+                    <Label>
+                        Corners:
+                    </Label>
+                    <Range min={0} max={1.5} step={0.1} defaultValue={1.25} onChange={({target: {valueAsNumber}}) => { borderRadiusValues.md = `${valueAsNumber}rem` }} nude={false} />
+                </Group>
+                
+                
+                <Group className={styles.theStrokes} theme='primary'>
+                    <Label>
+                        Strokes:
+                    </Label>
+                    <Range min={0} max={4} step={0.1} defaultValue={2} onChange={({target: {valueAsNumber}}) => { borderValues.defaultWidth = `${valueAsNumber}px` }} nude={false} />
+                </Group>
             </main>
         </>
     )

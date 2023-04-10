@@ -1,7 +1,7 @@
 import { defineTheme, colorValues, borderValues, borderRadiusValues } from '@reusable-ui/core'
 import { iconConfig, indicatorValues, controlValues, actionControlValues } from '@reusable-ui/components'
 import Color from 'color'
-import { navsideValues } from './components/navside';
+import { navsideValues } from './components/navside'
 
 
 

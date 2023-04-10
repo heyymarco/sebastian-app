@@ -1,0 +1,23 @@
+.page {
+    display: grid;
+    grid-template:
+        "component  themes" max-content
+        "component corners" max-content
+        "component strokes" max-content
+        "component ......." auto
+        / max-content min-content;
+    column-gap: 4rem;
+    row-gap: 2rem;
+}
+.theComponent {
+    grid-area: component;
+}
+.theThemes {
+    grid-area: themes;
+}
+.theCorners {
+    grid-area: corners;
+}
+.theStrokes {
+    grid-area: strokes;
+}
