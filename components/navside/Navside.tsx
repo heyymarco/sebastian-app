@@ -6,13 +6,6 @@ import {
     dynamicStyleSheet,
 }                           from '@cssfn/cssfn-react'           // writes css in react hook
 
-// reusable-ui core:
-import {
-    // react helper hooks:
-    useEvent,
-    useMergeEvents,
-}                           from '@reusable-ui/core'
-
 // reusable-ui components:
 import {
     BasicProps,
@@ -23,7 +16,6 @@ import {
     Generic,
     
     ListItemProps,
-    ListItemComponentProps,
 }                           from '@reusable-ui/components'
 
 // styles:
@@ -41,84 +33,6 @@ export const useNavsideStyleSheet = dynamicStyleSheet(
     // static load:
     navsideStyleSheet
 , { id: 'mvgvz3bsqe' }); // a unique salt for SSR support, ensures the server-side & client-side have the same generated class names
-
-
-
-interface WithInterceptorProps<TElement extends Element = HTMLElement>
-    extends
-        // bases:
-        Omit<ListItemProps<TElement>,
-            |'onClick'
-        >,
-        
-        // components:
-        Required<ListItemComponentProps<TElement>>
-{
-    // positions:
-    listIndex : number,
-    
-    
-    
-    // handlers:
-    onClick   : (listIndex: number) => void
-}
-const WithInterceptor = <TElement extends Element = HTMLElement>(props: WithInterceptorProps<TElement>) => {
-    // rest props:
-    const {
-        // positions:
-        listIndex,
-        
-        
-        
-        // components:
-        listItemComponent,
-        
-        
-        
-        // handlers:
-        onClick,
-    ...restListItemProps} = props;
-    
-    
-    
-    // handlers:
-    const handleClickInternal = useEvent<React.MouseEventHandler<TElement>>((_event) => {
-        onClick?.(listIndex);
-    });
-    const handleClick                = useMergeEvents(
-        // preserves the original `onClick` from `listItemComponent`:
-        listItemComponent.props.onClick,
-        
-        
-        
-        // forwards the original `onClick` from `props`:
-        handleClickInternal,
-    );
-    
-    
-    
-    // jsx:
-    /* <ListItem> */
-    return React.cloneElement<ListItemProps<TElement>>(listItemComponent,
-        // props:
-        {
-            // other props:
-            ...restListItemProps,
-            ...listItemComponent.props, // overwrites restListItemProps (if any conflics)
-            
-            
-            
-            // states:
-            // expanded         : accordionItemComponent.props.expanded ?? expanded,
-            
-            
-            
-            // handlers:
-            onClick : handleClick,
-        },
-    );
-}
-
 
 
 
@@ -143,14 +57,13 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
     
     
     // states:
-    const [menuSelectedIndex, setMenuSelectedIndex] = useState<number>(0)
+    const [menuSelectedIndex, setMenuSelectedIndex] = useState<number>(0);
     
-    
-    
-    // handlers:
-    const handleListItemClick = useEvent((listIndex: number) => {
-        setMenuSelectedIndex(listIndex);
-    });
+    const firstActiveIndex = React.Children.toArray(children).findIndex((listItem) => React.isValidElement<ListItemProps>(listItem) && (listItem.props.active === true))
+    const activeIndex = (firstActiveIndex >= 0) ? firstActiveIndex : 0;
+    if (menuSelectedIndex !== activeIndex) {
+        setMenuSelectedIndex(activeIndex);
+    } // if
     
     
     
@@ -204,55 +117,7 @@ export const Navside = (props: NavsideProps): JSX.Element|null => {
                 // behaviors:
                 actionCtrl={true}
             >
-                {React.Children.map(children, (listItem, listIndex) => {
-                    // conditions:
-                    if (!React.isValidElement<ListItemProps<Element>>(listItem)) return listItem;
-                    
-                    
-                    
-                    // rest props:
-                    const {
-                        // states:
-                        onClick : listItemOnClick, // sanitize the listItem's [onClick] prop (if exist), so it wouldn't collide with <WithInterceptor>'s [onClick] prop
-                    ...restListItemProps} = listItem.props;
-                    
-                    
-                    
-                    // jsx:
-                    return (
-                        <WithInterceptor<Element>
-                            // other props:
-                            {...restListItemProps} // steals (almost) all listItem's props, so the <List> can recognize the <WithInterceptor> as <ListItem>
-                            
-                            
-                            
-                            // positions:
-                            listIndex={listIndex}
-                            
-                            
-                            
-                            // components:
-                            listItemComponent={
-                                // clone listItem element with (almost) blank props:
-                                <listItem.type
-                                    // identifiers:
-                                    key={listItem.key}
-                                    
-                                    
-                                    
-                                    // states:
-                                    // restore the sanitized listItem's [onClick] prop (if exist):
-                                    {...(('onClick' in listItem.props) ? { onClick: listItemOnClick } : null)}
-                                />
-                            }
-                            
-                            
-                            
-                            // handlers:
-                            onClick={handleListItemClick}
-                        />
-                    );
-                })}
+                {children}
             </List>
         </Generic>
     );

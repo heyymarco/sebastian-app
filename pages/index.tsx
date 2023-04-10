@@ -1,6 +1,7 @@
 import { Menu, Navside, navsideValues } from '@/components/navside/index'
 import { Icon } from '@reusable-ui/components'
 import Head from 'next/head'
+import { useState } from 'react';
 
 
 
@@ -9,6 +10,11 @@ navsideValues.minBlockSize = '40rem';
 
 
 export default function Home() {
+    // states:
+    const [activeMenu, setActiveMenu] = useState<string>('dashboard');
+    
+    
+    
     return (
         <>
             <Head>
@@ -22,25 +28,25 @@ export default function Home() {
                     <Menu actionCtrl={false}>
                         My Logo
                     </Menu>
-                    <Menu>
+                    <Menu active={activeMenu === 'dashboard'} onClick={() => setActiveMenu('dashboard')}>
                         <Icon icon='dashboard' /> Dashboard
                     </Menu>
-                    <Menu>
+                    <Menu active={activeMenu === 'stock'} onClick={() => setActiveMenu('stock')}>
                         <Icon icon='inventory' /> Stock
                     </Menu>
-                    <Menu active={true}>
+                    <Menu active={activeMenu === 'requests'} onClick={() => setActiveMenu('requests')}>
                         <Icon icon='fact_check' /> Requests
                     </Menu>
-                    <Menu>
+                    <Menu active={activeMenu === 'risk'} onClick={() => setActiveMenu('risk')}>
                         <Icon icon='shield' /> Risk
                     </Menu>
-                    <Menu>
+                    <Menu active={activeMenu === 'analitics'} onClick={() => setActiveMenu('analitics')}>
                         <Icon icon='analytics' /> Analitics
                     </Menu>
-                    <Menu>
+                    <Menu active={activeMenu === 'regulations'} onClick={() => setActiveMenu('regulations')}>
                         <Icon icon='menu_book' /> Regulations
                     </Menu>
-                    <Menu>
+                    <Menu active={activeMenu === 'widgets'} onClick={() => setActiveMenu('widgets')}>
                         <Icon icon='widgets' /> Widgets
                     </Menu>
                 </Navside>
