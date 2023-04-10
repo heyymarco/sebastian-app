@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 
-import { Menu, Navside, navsideValues } from '@/components/navside'
+import { Navside, Menu } from '@/components/navside'
 import { Icon } from '@reusable-ui/components'
 
 

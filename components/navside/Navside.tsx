@@ -20,7 +20,7 @@ import {
 
 // styles:
 import navsideStyleSheet    from './styles/styles'
-import { navsidePublicVars } from './styles/vars';
+import { navsidePublicVars } from './styles/vars'
 
 
 
