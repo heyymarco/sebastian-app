@@ -4,16 +4,17 @@ import { useState } from 'react'
 import Head from 'next/head'
 
 import { Navside, Menu } from '@/components/navside'
-import { ThemeName } from '@reusable-ui/core'
-import { Icon, Group, Label, Radio, Range } from '@reusable-ui/components'
-import { borderValues, borderRadiusValues } from '@reusable-ui/core'
+// // // import type { ThemeName } from '@reusable-ui/core'
+
+// // // import { Icon, Group, Label, Radio, Range } from '@reusable-ui/components'
+// // // import { borderValues, borderRadiusValues } from '@reusable-ui/core'
 
 
 
 export default function Home() {
     // states:
     const [activeMenu, setActiveMenu] = useState<string>('dashboard');
-    const [theme, setTheme] = useState<ThemeName>('primary');
+    // // // const [theme, setTheme] = useState<ThemeName>('primary');
     
     
     return (
@@ -25,58 +26,65 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.page}>
-                <Navside className={styles.theComponent} theme={theme} size='md'>
+                <Navside className={styles.theComponent} theme='primary' size='md'>
                     <Menu actionCtrl={false}>
                         My Logo
                     </Menu>
                     <Menu active={activeMenu === 'dashboard'} onClick={() => setActiveMenu('dashboard')}>
-                        <Icon icon='dashboard' /> Dashboard
+                        {/* <Icon icon='dashboard' /> */}
+                        Dashboard
                     </Menu>
                     <Menu active={activeMenu === 'stock'} onClick={() => setActiveMenu('stock')}>
-                        <Icon icon='inventory' /> Stock
+                        {/* <Icon icon='inventory' /> */}
+                        Stock
                     </Menu>
                     <Menu active={activeMenu === 'requests'} onClick={() => setActiveMenu('requests')}>
-                        <Icon icon='fact_check' /> Requests
+                        {/* <Icon icon='fact_check' /> */}
+                        Requests
                     </Menu>
                     <Menu active={activeMenu === 'risk'} onClick={() => setActiveMenu('risk')}>
-                        <Icon icon='shield' /> Risk
+                        {/* <Icon icon='shield' /> */}
+                        Risk
                     </Menu>
                     <Menu active={activeMenu === 'analitics'} onClick={() => setActiveMenu('analitics')}>
-                        <Icon icon='analytics' /> Analitics
+                        {/* <Icon icon='analytics' /> */}
+                        Analitics
                     </Menu>
                     <Menu active={activeMenu === 'regulations'} onClick={() => setActiveMenu('regulations')}>
-                        <Icon icon='menu_book' /> Regulations
+                        {/* <Icon icon='menu_book' /> */}
+                        Regulations
                     </Menu>
                     <Menu active={activeMenu === 'widgets'} onClick={() => setActiveMenu('widgets')}>
-                        <Icon icon='widgets' /> Widgets
+                        {/* <Icon icon='widgets' /> */}
+                        Widgets
                     </Menu>
                 </Navside>
                 
                 
-                <Group className={styles.theThemes}>
+                {/* <Group className={styles.theThemes}>
                     <Label>
                         Theme:
                     </Label>
                     {['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'].map((themeOpt) =>
                         <Radio key={themeOpt} name='theme' theme={themeOpt} active={theme === themeOpt} onClick={() => setTheme(themeOpt)} nude={false} />
                     )}
-                </Group>
+                </Group> */}
                 
                 
-                <Group className={styles.theCorners} theme='primary'>
+                {/* <Group className={styles.theCorners} theme='primary'>
                     <Label>
                         Corners:
                     </Label>
                     <Range min={0} max={1.5} step={0.1} defaultValue={1.25} onChange={({target: {valueAsNumber}}) => { borderRadiusValues.md = `${valueAsNumber}rem` }} nude={false} />
-                </Group>
+                </Group> */}
                 
                 
-                <Group className={styles.theStrokes} theme='primary'>
+                {/* <Group className={styles.theStrokes} theme='primary'>
                     <Label>
                         Strokes:
                     </Label>
                     <Range min={0} max={4} step={1} defaultValue={2} onChange={({target: {valueAsNumber}}) => { borderValues.defaultWidth = `${valueAsNumber}px` }} nude={false} />
-                </Group>
+                </Group> */}
             </main>
         </>
     )

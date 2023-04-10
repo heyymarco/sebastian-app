@@ -1,0 +1,10 @@
+:root {
+    --spc-none: 0rem;
+    --spc-md: 1rem;
+    --spc-default: var(--spc-md);
+    --spc-xxs: calc(var(--spc-default) / 8);
+    --spc-xs: calc(var(--spc-default) / 4);
+    --spc-sm: calc(var(--spc-default) / 2);
+    --spc-lg: calc(var(--spc-default) * 1.5);
+    --spc-xl: calc(var(--spc-default) * 3);
+}

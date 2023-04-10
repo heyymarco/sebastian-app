@@ -1,0 +1,10 @@
+:root {
+    --bor-none: 0px;
+    --bor-hair: 1px;
+    --bor-thin: 2px;
+    --bor-bold: 4px;
+    --bor-color: currentColor;
+    --bor-style: solid;
+    --bor-defaultWidth: var(--bor-thin);
+    --bor-default: var(--bor-style) var(--bor-hair) var(--bor-color);
+}

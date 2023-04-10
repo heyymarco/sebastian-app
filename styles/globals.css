@@ -11,3 +11,15 @@ body {
   padding-inline: 12rem;
   padding-block: 6rem;
 }
+
+:root {
+  background: var(--backg);
+  color: var(--foreg);
+  font-style: var(--fontStyle);
+  text-decoration: var(--textDecoration);
+  overflow-wrap: var(--overflowWrap);
+  font-size: var(--fontSize);
+  font-family: var(--fontFamily);
+  font-weight: var(--fontWeight);
+  line-height: var(--lineHeight);
+}

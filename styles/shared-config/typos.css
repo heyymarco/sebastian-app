@@ -1,0 +1,29 @@
+:root {
+    --backg: var(--col-backg);
+    --foreg: var(--col-foreg);
+    --fontSizeMd: 1rem;
+    --fontFamilySansSerief: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --fontFamilyMonospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --fontWeightLighter: lighter;
+    --fontWeightLight: 300;
+    --fontWeightNormal: 400;
+    --fontWeightSemibold: 600;
+    --fontWeightBold: 700;
+    --fontWeightBolder: bolder;
+    --fontStyle: normal;
+    --textDecoration: none;
+    --lineHeightSm: 1.25;
+    --lineHeightMd: 1.5;
+    --lineHeightLg: 2;
+    --overflowWrap: break-word;
+    --fontSizeXs: calc(var(--fontSize) * 0.5);
+    --fontSizeSm: calc(var(--fontSize) * 0.75);
+    --fontSize: var(--fontSizeMd);
+    --fontSizeLg: calc(var(--fontSize) * var(--lineHeightSm));
+    --fontSizeXl: calc(var(--fontSize) * var(--lineHeight));
+    --fontSizeXxl: calc(var(--fontSize) * 1.75);
+    --fontSizeXxxl: calc(var(--fontSize) * var(--lineHeightLg));
+    --fontFamily: var(--fontFamilySansSerief);
+    --fontWeight: var(--fontWeightNormal);
+    --lineHeight: var(--lineHeightMd);
+}

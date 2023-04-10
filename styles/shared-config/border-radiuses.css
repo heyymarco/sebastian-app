@@ -1,0 +1,11 @@
+:root {
+    --bor-rd-none: 0rem;
+    --bor-rd-sm: 0.75rem;
+    --bor-rd-md: 1.25rem;
+    --bor-rd-lg: 1.5rem;
+    --bor-rd-xl: 1rem;
+    --bor-rd-xxl: 2rem;
+    --bor-rd-pill: 50rem;
+    --bor-rd-circle: 50%;
+    --bor-rd-default: var(--bor-rd-md);
+}
