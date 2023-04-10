@@ -75,7 +75,7 @@ export default function Home() {
                     <Label>
                         Strokes:
                     </Label>
-                    <Range min={0} max={4} step={0.1} defaultValue={2} onChange={({target: {valueAsNumber}}) => { borderValues.defaultWidth = `${valueAsNumber}px` }} nude={false} />
+                    <Range min={0} max={4} step={1} defaultValue={2} onChange={({target: {valueAsNumber}}) => { borderValues.defaultWidth = `${valueAsNumber}px` }} nude={false} />
                 </Group>
             </main>
         </>
