@@ -1,11 +1,8 @@
-import { Menu, Navside, navsideValues } from '@/components/navside/index'
-import { Icon } from '@reusable-ui/components'
+import { useState } from 'react'
 import Head from 'next/head'
-import { useState } from 'react';
 
-
-
-navsideValues.minBlockSize = '40rem';
+import { Menu, Navside, navsideValues } from '@/components/navside'
+import { Icon } from '@reusable-ui/components'
 
 
 

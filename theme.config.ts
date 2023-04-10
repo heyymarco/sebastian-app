@@ -1,6 +1,7 @@
 import { defineTheme, colorValues, borderValues, borderRadiusValues } from '@reusable-ui/core'
 import { iconConfig, indicatorValues, controlValues, actionControlValues } from '@reusable-ui/components'
 import Color from 'color'
+import { navsideValues } from './components/navside';
 
 
 
@@ -52,3 +53,8 @@ actionControlValues.filterPress = [[
 //     { name: 'artswimwear.svg', ratio: '48/40' },
 //     { name: 'scrolldown.svg', ratio: '20/40' },
 // );
+
+
+
+// navigation side:
+navsideValues.minBlockSize = '40rem';
