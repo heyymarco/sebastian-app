@@ -43,7 +43,7 @@ export interface MenuProps<TElement extends Element = HTMLButtonElement>
     // children:
     children   ?: React.ReactNode
 }
-export const Menu= <TElement extends Element = HTMLButtonElement>(props: MenuProps<TElement>): JSX.Element|null => {
+export const Menu = <TElement extends Element = HTMLButtonElement>(props: MenuProps<TElement>): JSX.Element|null => {
     const {
         // behaviors:
         actionCtrl = true,
@@ -87,6 +87,11 @@ export const Menu= <TElement extends Element = HTMLButtonElement>(props: MenuPro
             <Tag
                 // other props:
                 {...restProps}
+                
+                
+                
+                // behaviors:
+                tabIndex={0} // focusable
                 
                 
                 

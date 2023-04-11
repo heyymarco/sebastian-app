@@ -4,17 +4,12 @@ import { useState } from 'react'
 import Head from 'next/head'
 
 import { Navside, Menu } from '@/components/navside'
-// // // import type { ThemeName } from '@reusable-ui/core'
-
-// // // import { Icon, Group, Label, Radio, Range } from '@reusable-ui/components'
-// // // import { borderValues, borderRadiusValues } from '@reusable-ui/core'
 
 
 
 export default function Home() {
     // states:
     const [activeMenu, setActiveMenu] = useState<string>('dashboard');
-    // // // const [theme, setTheme] = useState<ThemeName>('primary');
     
     
     return (

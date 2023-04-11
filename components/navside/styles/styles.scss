@@ -200,6 +200,8 @@
         >* {
             // resets:
             appearance: none;
+            outline        : unset; // removes focus outline
+            outline-offset : unset; // removes focus outline
             
             
             
@@ -213,10 +215,31 @@
             
             
             
+            // foregrounds:
+            color: var(--th-foreg);
+            
+            
+            
+            // typos:
+            font-size: var(--fontSize);
+            font-family: var(--fontFamily);
+            font-weight: var(--fontWeight);
+            font-style: var(--fontStyle);
+            text-decoration: var(--textDecoration);
+            line-height: var(--lineHeight);
+            
+            
+            
+            // borders:
+            border-radius: var(--navs-borderRadius);
+            
+            
+            
             // sizes:
             box-sizing: border-box;
             inline-size: var(--navs-menuInlineSize);
             block-size: var(--navs-menuBlockSize);
+            
             
             
             // spacings:
@@ -224,9 +247,169 @@
             padding-block: var(--navs-menuPaddingBlock);
             column-gap: var(--navs-menuGapInline);
             row-gap: var(--navs-menuGapBlock);
+            
+            
+            
+            // <Indicator>
+            // disableable:
+            &:is([aria-disabled]:not([aria-disabled="false"]), :disabled) {
+                cursor: var(--ctrl-cursorDisable);
+                --dis-filterContrast   : var(--indi-filterDisableContrast);
+                --dis-filterBrightness : var(--indi-filterDisableBrightness);
+                --dis-filterSaturate   : var(--indi-filterDisableSaturate);
+            }
+            
+            
+            
+            // <Indicator>
+            // activatable (selected/checked/active/current):
+            &.active {
+                --ac-filterContrast   : var(--indi-filterActiveContrast);
+                --ac-filterBrightness : var(--indi-filterActiveBrightness);
+                --ac-filterSaturate   : var(--indi-filterActiveSaturate);
+            }
+            
+            
+            
+            // <Control>
+            // focusable:
+            &:is(:focus-visible, :has(:focus-visible)) {
+                box-shadow: var(--ctrl-boxShadowFocus) var(--th-ring);
+            }
+            
+            
+            
+            // <Control>
+            // interactable (hover):
+            &:is(:hover, :focus-visible, :has(:focus-visible)) {
+                --in-filterContrast   : var(--ctrl-filterArriveContrast);
+                --in-filterBrightness : var(--ctrl-filterArriveBrightness);
+                --in-filterSaturate   : var(--ctrl-filterArriveSaturate);
+            }
+            
+            
+            
+            // <ActionControl>
+            // pressed/click:
+            cursor: var(--act-cursor);
+            &:is(:active) {
+                --cl-filterContrast   : var(--act-filterPressContrast);
+                --cl-filterBrightness : var(--act-filterPressBrightness);
+                --cl-filterSaturate   : var(--act-filterPressSaturate);
+            }
+            
+            
+            
+            // animations & transitions:
+            transition:
+                // disableable:
+                --dis-filterContrast   var(--indi-transDisable),
+                --dis-filterBrightness var(--indi-transDisable),
+                --dis-filterSaturate   var(--indi-transDisable),
+                
+                // activatable (selected/checked/active/current):
+                --ac-filterContrast   var(--indi-transActive),
+                --ac-filterBrightness var(--indi-transActive),
+                --ac-filterSaturate   var(--indi-transActive),
+                
+                // focusable:
+                box-shadow            var(--ctrl-transFocus),
+                
+                // interactable (hover):
+                --in-filterContrast   var(--ctrl-transArrive),
+                --in-filterBrightness var(--ctrl-transArrive),
+                --in-filterSaturate   var(--ctrl-transArrive),
+                
+                // pressed/click:
+                --cl-filterContrast   var(--ctrl-transPress),
+                --cl-filterBrightness var(--ctrl-transPress),
+                --cl-filterSaturate   var(--ctrl-transPress),
+            ;
+            filter:
+                // disableable:
+                #{"contrast(var(--dis-filterContrast)) brightness(var(--dis-filterBrightness)) saturate(var(--dis-filterSaturate))"}
+                
+                // activatable (selected/checked/active/current):
+                #{"contrast(var(--ac-filterContrast)) brightness(var(--ac-filterBrightness)) saturate(var(--ac-filterSaturate))"}
+                
+                // interactable (hover):
+                #{"contrast(var(--in-filterContrast)) brightness(var(--in-filterBrightness)) saturate(var(--in-filterSaturate))"}
+                
+                // pressed/click:
+                #{"contrast(var(--cl-filterContrast)) brightness(var(--cl-filterBrightness)) saturate(var(--cl-filterSaturate))"}
+                ;
         }
     }
 }
+
+// disableable:
+@property --dis-filterContrast {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --dis-filterBrightness {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --dis-filterSaturate {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+
+// activatable (selected/checked/active/current):
+@property --ac-filterContrast {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --ac-filterBrightness {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --ac-filterSaturate {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+
+// interactable (hover):
+@property --in-filterContrast {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --in-filterBrightness {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --in-filterSaturate {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+
+// pressed/click:
+@property --cl-filterContrast {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --cl-filterBrightness {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+@property --cl-filterSaturate {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 100%;
+}
+
 
 
 /* themes: */
@@ -234,34 +417,50 @@
 .navside {
     &.thPrimary {
         --th-backg: var(--col-primary);
+        --th-foreg: var(--col-primaryText);
         --th-border: var(--col-primaryBold);
+        --th-ring: var(--col-primaryThin);
     }
     &.thSecondary {
         --th-backg: var(--col-secondary);
+        --th-foreg: var(--col-secondaryText);
         --th-border: var(--col-secondaryBold);
+        --th-ring: var(--col-secondaryThin);
     }
     &.thSuccess {
         --th-backg: var(--col-success);
+        --th-foreg: var(--col-successText);
         --th-border: var(--col-successBold);
+        --th-ring: var(--col-successThin);
     }
     &.thInfo {
         --th-backg: var(--col-info);
+        --th-foreg: var(--col-infoText);
         --th-border: var(--col-infoBold);
+        --th-ring: var(--col-infoThin);
     }
     &.thWarning {
         --th-backg: var(--col-warning);
+        --th-foreg: var(--col-warningText);
         --th-border: var(--col-warningBold);
+        --th-ring: var(--col-warningThin);
     }
     &.thDanger {
         --th-backg: var(--col-danger);
+        --th-foreg: var(--col-dangerText);
         --th-border: var(--col-dangerBold);
+        --th-ring: var(--col-dangerThin);
     }
     &.thLight {
         --th-backg: var(--col-light);
+        --th-foreg: var(--col-lightText);
         --th-border: var(--col-lightBold);
+        --th-ring: var(--col-lightThin);
     }
     &.thDark {
         --th-backg: var(--col-dark);
+        --th-foreg: var(--col-darkText);
         --th-border: var(--col-darkBold);
+        --th-ring: var(--col-darkThin);
     }
 }

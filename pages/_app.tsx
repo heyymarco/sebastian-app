@@ -1,39 +1,18 @@
-// // // // css-in-js lib:
-// // // import '../libs/cssfn-preload'
-// // // import '@cssfn/cssfn-dom'
+// *shared* css appearances accoss the components:
+import '@/styles/shared-appearances/typos.css'           // fonts, overflowBehavior, lineHeight
+import '@/styles/shared-appearances/colors.css'          // primary color, alternate color, success color, error color, warning color
+import '@/styles/shared-appearances/borders.css'         // border style, border width, default border color
+import '@/styles/shared-appearances/border-radiuses.css' // rounded corners
+import '@/styles/shared-appearances/spacers.css'         // margin, padding, gap
 
-// *shared* css configuration accoss the components:
-import '@/styles/shared-config/typos.css'
-import '@/styles/shared-config/colors.css'
-import '@/styles/shared-config/borders.css'
-import '@/styles/shared-config/border-radiuses.css'
-import '@/styles/shared-config/spacers.css'
-
-// <Basic> css:
-import '@/components/basic/styles/config.css'
-import '@/components/basic/styles/styles.css'
-
-// active/selected/checked components:
-import '@/components/indicator/styles/config.css'
-
-// interacting (hover) indications:
-import '@/components/control/styles/config.css'
-
-// actions (clicking) feedbacks:
-import '@/components/action-control/styles/config.css'
-
-// <List> css:
-import '@/components/list/styles/config.css'
-import '@/components/list/styles/list.css'
-import '@/components/list/styles/listItem.css'
-import '@/components/list/styles/listActionItem.css'
+// *shared* css behaviors accoss the components:
+import '@/styles/shared-behaviors/indicator.css'         // disabled, disabled-mouse-pointer, selected/active/checked
+import '@/styles/shared-behaviors/control.css'           // focus, hover
+import '@/styles/shared-behaviors/action-control.css'    // pressed, clicked, select-mouse-pointer, button-like
 
 // <Navside> css:
 import '@/components/navside/styles/config.css'
 import '@/components/navside/styles/styles.scss'
-
-// // // // component configs & themes:
-// // // import '@/theme.config'
 
 // nextJS things:
 import '@/styles/globals.css'
