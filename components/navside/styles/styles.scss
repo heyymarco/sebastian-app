@@ -1,60 +1,43 @@
 .navside {
+    // private variables, not exported, so use a short name:
+    // restMenuInlineSize:
     --v1: calc(var(--navs-menuInlineSize) - (2 * var(--navs-borderRadius)));
+    // restMenuBlockSize:
     --v2: calc(var(--navs-menuBlockSize) - (2 * var(--navs-borderRadius)));
+    // menuShiftPos:
     --v3: calc(var(--navside-menuSelectedIndex) * var(--navs-menuBlockSize));
+    
+    
+    
+    // layouts:
     display: inline-grid;
-    grid-template: "..... ....... ....... ........"var(--navs-paddingBlock) "..... ....... ....... ........"calc(0px - var(--navs-borderRadius)) "..... ....... fill1    corner1"var(--navs-borderRadius) "..... corner2 ....... ........"var(--navs-borderRadius) "..... void3   ....... ........"var(--v2) "..... corner4 ....... ........"var(--navs-borderRadius) "..... ......  fill5    corner5"var(--navs-borderRadius) "..... menusC3 .......  menusC4"auto "..... ....... ....... ........"1fr "..... ....... ....... ........"var(--navs-paddingBlock) / var(--navs-paddingInline) var(--navs-borderRadius) auto var(--navs-borderRadius);
-    filter: var(--navs-dropShadow);
-    border-style: var(--navs-borderStyle);
-    border-width: var(--navs-borderWidth);
-    border-radius: var(--navs-borderRadius);
+    grid-template:
+        "..... ....... ....... ........"var(--navs-paddingBlock)
+        "..... ....... ....... ........"calc(0px - var(--navs-borderRadius))
+        "..... ....... fill1    corner1"var(--navs-borderRadius)
+        "..... corner2 ....... ........"var(--navs-borderRadius)
+        "..... void3   ....... ........"var(--v2)
+        "..... corner4 ....... ........"var(--navs-borderRadius)
+        "..... ......  fill5    corner5"var(--navs-borderRadius)
+        "..... menusC3 .......  menusC4"auto
+        "..... ....... ....... ........"1fr
+        "..... ....... ....... ........"var(--navs-paddingBlock)
+        /
+        var(--navs-paddingInline) var(--navs-borderRadius) auto var(--navs-borderRadius)
+        ;
+    
+    
+    
+    // sizes:
     min-inline-size: var(--navs-minInlineSize);
     min-block-size: var(--navs-minBlockSize);
-    padding-inline: var(--navs-paddingInline);
-    padding-block: var(--navs-paddingBlock);
-    border: var(--bd-border);
-    border-start-start-radius: var(--bd-borderStartStartRadius);
-    border-start-end-radius: var(--bd-borderStartEndRadius);
-    border-end-start-radius: var(--bd-borderEndStartRadius);
-    border-end-end-radius: var(--bd-borderEndEndRadius);
-    --bd-borderColorFn: var(--th-borderCond, var(--th-border, var(--navs-borderColor)));
-    --bd-borderColor: var(--ol-foregTg, var(--bd-borderColorFn));
-    --bd-borderStyle: var(--navs-borderStyle);
-    --bd-borderWidth: var(--navs-borderWidth);
-    --bd-border: var(--bd-borderStyle) var(--bd-borderWidth) var(--bd-borderColor);
-    --bd-borderStartStartRadius: var(--navs-borderRadius);
-    --bd-borderStartEndRadius: var(--navs-borderRadius);
-    --bd-borderEndStartRadius: var(--navs-borderRadius);
-    --bd-borderEndEndRadius: var(--navs-borderRadius);
-    --bd-borderRadius: var(--bd-borderStartStartRadius) var(--bd-borderStartEndRadius) var(--bd-borderEndEndRadius) var(--bd-borderEndStartRadius);
-    --pd-paddingInline: var(--navs-paddingInline);
-    --pd-paddingBlock: var(--navs-paddingBlock);
-    --pd-padding: var(--pd-paddingBlock) var(--pd-paddingInline);
-    border-color: transparent;
-    padding: 0;
-    --gd-backgGrad: var(--bsc-backgGrad);
-    --gd-gradientSw: var(--gd-gradientPr);
-    --gd-backgGradTg: var(--gd-gradientSw) var(--gd-backgGrad);
-    --ol-outlinedSw: var(--ol-outlinedPr);
-    --ol-backgFn: var(--th-backgMildCond, var(--th-backgMild, var(--bsc-backg)));
-    --ol-foregFn: var(--th-foregOutlinedCond, var(--th-foregOutlined, var(--bsc-foreg)));
-    --ol-altBackgFn: var(--th-altBackgOutlinedCond, var(--th-altBackgOutlined, var(--bsc-altBackg)));
-    --ol-altForegFn: var(--th-altForegOutlinedCond, var(--th-altForegOutlined, var(--bsc-altForeg)));
-    --ol-noBackgTg: var(--ol-outlinedSw) transparent;
-    --ol-backgTg: var(--ol-outlinedSw) var(--ol-backgFn);
-    --ol-foregTg: var(--ol-outlinedSw) var(--ol-foregFn);
-    --ol-altBackgTg: var(--ol-outlinedSw) var(--ol-altBackgFn);
-    --ol-altForegTg: var(--ol-outlinedSw) var(--ol-altForegFn);
-    --mi-mildSw: var(--mi-mildPr);
-    --mi-backgFn: var(--th-backgMildCond, var(--th-backgMild, var(--bsc-backg)));
-    --mi-foregFn: var(--th-foregMildCond, var(--th-foregMild, var(--bsc-foreg)));
-    --mi-altBackgFn: var(--th-altBackgMildCond, var(--th-altBackgMild, var(--bsc-altBackg)));
-    --mi-altForegFn: var(--th-altForegMildCond, var(--th-altForegMild, var(--bsc-altForeg)));
-    --mi-backgTg: var(--mi-mildSw) var(--mi-backgFn);
-    --mi-foregTg: var(--mi-mildSw) var(--mi-foregFn);
-    --mi-altBackgTg: var(--mi-mildSw) var(--mi-altBackgFn);
-    --mi-altForegTg: var(--mi-mildSw) var(--mi-altForegFn);
-    --nu-nudeSw: var(--nu-nudePr);
+    
+    
+    
+    // borders & shadows:
+    filter: var(--navs-dropShadow);
+    // invisible border, just for maintaining size:
+    border        : solid var(--navs-borderWidth) transparent;
 }
 
 
