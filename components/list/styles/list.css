@@ -423,7 +423,6 @@
 }
 
 .dtw9l.content>*>*>:where(figure, img, svg, video, picture, embed, object, .media):not(:where(.not-media)):nth-child(n):not(_) {
-    inline-size: calc(100% + (var(--gr-paddingInline) * 2));
     border: var(--bd-border);
     border-start-start-radius: var(--bd-borderStartStartRadius);
     border-start-end-radius: var(--bd-borderStartEndRadius);
@@ -436,6 +435,7 @@
     --gr-borderWidth: 0px;
     border-inline-width: 0;
     box-sizing: border-box;
+    inline-size: calc(100% + (var(--gr-paddingInline) * 2));
     inline-size: fill-available;
     margin-inline: calc(0px - var(--gr-paddingInline));
     margin-block-end: var(--gr-paddingBlock);

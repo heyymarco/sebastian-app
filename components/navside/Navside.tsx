@@ -1,38 +1,43 @@
 import {default as React, useState, useRef, useEffect} from 'react'
 
-// cssfn:
-import {
-    // style sheets:
-    dynamicStyleSheet,
-}                           from '@cssfn/cssfn-react'           // writes css in react hook
+// // // // cssfn:
+// // // import {
+// // //     // style sheets:
+// // //     dynamicStyleSheet,
+// // // }                           from '@cssfn/cssfn-react'           // writes css in react hook
 
 // reusable-ui components:
 import {
-    BasicProps,
-    Basic,
-    
-    List,
-    ListItem,
     Generic,
     
     ListItemProps,
 }                           from '@reusable-ui/components'
 
+// neighbour components:
+import {
+    BasicProps,
+    Basic,
+}                           from '../basic'
+import {
+    List,
+    ListItem,
+}                           from '../list'
+
 // styles:
-import navsideStyleSheet    from './styles/styles'
+// // // import navsideStyleSheet    from './styles/styles'
 import { navsidePublicVars } from './styles/vars'
 
 
 
-// styles:
-export const useNavsideStyleSheet = dynamicStyleSheet(
-    // dynamic load:
-    // () => import(/* webpackPrefetch: true */ './styles/styles.js')   /* when exported to external package */
-    // () => import(/* webpackPrefetch: true */ './styles/styles')         /* when inside nextJs app */
-    
-    // static load:
-    navsideStyleSheet
-, { id: 'mvgvz3bsqe' }); // a unique salt for SSR support, ensures the server-side & client-side have the same generated class names
+// // // // styles:
+// // // export const useNavsideStyleSheet = dynamicStyleSheet(
+// // //     // dynamic load:
+// // //     // () => import(/* webpackPrefetch: true */ './styles/styles.js')   /* when exported to external package */
+// // //     // () => import(/* webpackPrefetch: true */ './styles/styles')         /* when inside nextJs app */
+// // //     
+// // //     // static load:
+// // //     navsideStyleSheet
+// // // , { id: 'mvgvz3bsqe' }); // a unique salt for SSR support, ensures the server-side & client-side have the same generated class names
 
 
 
@@ -45,8 +50,8 @@ export interface NavsideProps<TElement extends Element = HTMLElement>
     transitionInterval?: number
 }
 export const Navside = <TElement extends Element = HTMLElement>(props: NavsideProps<TElement>): JSX.Element|null => {
-    // styles:
-    const styleSheet = useNavsideStyleSheet();
+    // // // // styles:
+    // // // const styleSheet = useNavsideStyleSheet();
     
     
     
@@ -188,7 +193,7 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
             
             
             // classes:
-            mainClass={props.mainClass ?? styleSheet.main}
+            mainClass={props.mainClass ?? 'tbu0f'}
             classes={classes}
             variantClasses={variantClasses}
             stateClasses={stateClasses}

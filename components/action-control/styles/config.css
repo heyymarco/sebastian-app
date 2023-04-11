@@ -1,0 +1,44 @@
+:root {
+    --act-cursor: pointer;
+    --act-filterPress: brightness(85%);
+    --act-animPress: 150ms ease-out both act-press;
+    --act-animRelease: 300ms ease-out both act-release;
+    --act-animPressAsActive: 150ms ease-out both act-pressas-active;
+    --act-animReleaseAsPassive: 300ms ease-out both act-releaseas-passive;
+}
+
+@keyframes act-press {
+    from {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone);
+    }
+    to {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone) var(--cl-filter);
+    }
+}
+
+@keyframes act-release {
+    from {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone) var(--cl-filter);
+    }
+    to {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone);
+    }
+}
+
+@keyframes act-pressas-active {
+    from {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone);
+    }
+    to {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone) var(--cl-filter);
+    }
+}
+
+@keyframes act-releaseas-passive {
+    from {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone) var(--cl-filter);
+    }
+    to {
+        filter: var(--ac-filter) var(--in-filter) var(--di-filter) var(--ex-filter) var(--an-filterNone);
+    }
+}

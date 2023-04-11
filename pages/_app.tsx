@@ -13,6 +13,15 @@ import '@/styles/shared-config/spacers.css'
 import '@/components/basic/styles/config.css'
 import '@/components/basic/styles/styles.css'
 
+// active/selected/checked components:
+import '@/components/indicator/styles/config.css'
+
+// interacting (hover) indications:
+import '@/components/control/styles/config.css'
+
+// actions (clicking) feedbacks:
+import '@/components/action-control/styles/config.css'
+
 // <List> css:
 import '@/components/list/styles/config.css'
 import '@/components/list/styles/list.css'
