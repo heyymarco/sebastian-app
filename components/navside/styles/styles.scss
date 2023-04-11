@@ -1,0 +1,230 @@
+.navside {
+    --v1: calc(var(--navs-menuInlineSize) - (2 * var(--navs-borderRadius)));
+    --v2: calc(var(--navs-menuBlockSize) - (2 * var(--navs-borderRadius)));
+    --v3: calc(var(--navside-menuSelectedIndex) * var(--navs-menuBlockSize));
+    display: inline-grid;
+    grid-template: "..... ....... ....... ........"var(--navs-paddingBlock) "..... ....... ....... ........"calc(0px - var(--navs-borderRadius)) "..... ....... fill1    corner1"var(--navs-borderRadius) "..... corner2 ....... ........"var(--navs-borderRadius) "..... void3   ....... ........"var(--v2) "..... corner4 ....... ........"var(--navs-borderRadius) "..... ......  fill5    corner5"var(--navs-borderRadius) "..... menusC3 .......  menusC4"auto "..... ....... ....... ........"1fr "..... ....... ....... ........"var(--navs-paddingBlock) / var(--navs-paddingInline) var(--navs-borderRadius) auto var(--navs-borderRadius);
+    filter: var(--navs-dropShadow);
+    border-style: var(--navs-borderStyle);
+    border-width: var(--navs-borderWidth);
+    border-radius: var(--navs-borderRadius);
+    min-inline-size: var(--navs-minInlineSize);
+    min-block-size: var(--navs-minBlockSize);
+    padding-inline: var(--navs-paddingInline);
+    padding-block: var(--navs-paddingBlock);
+    border: var(--bd-border);
+    border-start-start-radius: var(--bd-borderStartStartRadius);
+    border-start-end-radius: var(--bd-borderStartEndRadius);
+    border-end-start-radius: var(--bd-borderEndStartRadius);
+    border-end-end-radius: var(--bd-borderEndEndRadius);
+    --bd-borderColorFn: var(--th-borderCond, var(--th-border, var(--navs-borderColor)));
+    --bd-borderColor: var(--ol-foregTg, var(--bd-borderColorFn));
+    --bd-borderStyle: var(--navs-borderStyle);
+    --bd-borderWidth: var(--navs-borderWidth);
+    --bd-border: var(--bd-borderStyle) var(--bd-borderWidth) var(--bd-borderColor);
+    --bd-borderStartStartRadius: var(--navs-borderRadius);
+    --bd-borderStartEndRadius: var(--navs-borderRadius);
+    --bd-borderEndStartRadius: var(--navs-borderRadius);
+    --bd-borderEndEndRadius: var(--navs-borderRadius);
+    --bd-borderRadius: var(--bd-borderStartStartRadius) var(--bd-borderStartEndRadius) var(--bd-borderEndEndRadius) var(--bd-borderEndStartRadius);
+    --pd-paddingInline: var(--navs-paddingInline);
+    --pd-paddingBlock: var(--navs-paddingBlock);
+    --pd-padding: var(--pd-paddingBlock) var(--pd-paddingInline);
+    border-color: transparent;
+    padding: 0;
+    --gd-backgGrad: var(--bsc-backgGrad);
+    --gd-gradientSw: var(--gd-gradientPr);
+    --gd-backgGradTg: var(--gd-gradientSw) var(--gd-backgGrad);
+    --ol-outlinedSw: var(--ol-outlinedPr);
+    --ol-backgFn: var(--th-backgMildCond, var(--th-backgMild, var(--bsc-backg)));
+    --ol-foregFn: var(--th-foregOutlinedCond, var(--th-foregOutlined, var(--bsc-foreg)));
+    --ol-altBackgFn: var(--th-altBackgOutlinedCond, var(--th-altBackgOutlined, var(--bsc-altBackg)));
+    --ol-altForegFn: var(--th-altForegOutlinedCond, var(--th-altForegOutlined, var(--bsc-altForeg)));
+    --ol-noBackgTg: var(--ol-outlinedSw) transparent;
+    --ol-backgTg: var(--ol-outlinedSw) var(--ol-backgFn);
+    --ol-foregTg: var(--ol-outlinedSw) var(--ol-foregFn);
+    --ol-altBackgTg: var(--ol-outlinedSw) var(--ol-altBackgFn);
+    --ol-altForegTg: var(--ol-outlinedSw) var(--ol-altForegFn);
+    --mi-mildSw: var(--mi-mildPr);
+    --mi-backgFn: var(--th-backgMildCond, var(--th-backgMild, var(--bsc-backg)));
+    --mi-foregFn: var(--th-foregMildCond, var(--th-foregMild, var(--bsc-foreg)));
+    --mi-altBackgFn: var(--th-altBackgMildCond, var(--th-altBackgMild, var(--bsc-altBackg)));
+    --mi-altForegFn: var(--th-altForegMildCond, var(--th-altForegMild, var(--bsc-altForeg)));
+    --mi-backgTg: var(--mi-mildSw) var(--mi-backgFn);
+    --mi-foregTg: var(--mi-mildSw) var(--mi-foregFn);
+    --mi-altBackgTg: var(--mi-mildSw) var(--mi-altBackgFn);
+    --mi-altForegTg: var(--mi-mildSw) var(--mi-altForegFn);
+    --nu-nudeSw: var(--nu-nudePr);
+}
+
+
+
+/* <Underlay>: */
+
+.navside>.underlay {
+    // positions:
+    grid-area: 1/1/-1/-1;
+    
+    
+    
+    // layouts:
+    display: grid;
+    grid-template:
+        "..... ....... ....... ........" var(--navs-paddingBlock)
+        "..... ....... ....... ........" var(--v3)
+        "..... ....... fill1    corner1" var(--navs-borderRadius)
+        "..... corner2 ....... ........" var(--navs-borderRadius)
+        "..... void3   ....... ........" var(--v2)
+        "..... corner4 ....... ........" var(--navs-borderRadius)
+        "..... ......  fill5    corner5" var(--navs-borderRadius)
+        "..... menusC3 .......  menusC4" auto
+        "..... ....... ....... ........" 1fr
+        "..... ....... ....... ........" var(--navs-paddingBlock)
+        /
+        var(--navs-paddingInline) var(--navs-borderRadius) auto var(--navs-borderRadius)
+        ;
+    
+    clip-path: polygon(0 0, 100% 0, 100% calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 1)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.987)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.156)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.951)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.309)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.891)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.453)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.809)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.587)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.707)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.707)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.587)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.809)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.453)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.891)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.309)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.951)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.156)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (var(--navs-borderRadius) * 0.987)), calc(100% - var(--navs-borderRadius)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + var(--navs-borderRadius)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + var(--navs-borderRadius)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 1.2246467991473532e-16)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -1)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.156)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.987)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.309)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.951)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.453)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.891)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.587)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.809)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.707)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.707)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.809)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.587)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.891)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.453)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.951)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.309)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.987)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -0.156)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline)) calc((var(--navs-borderWidth) * 2) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius))), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline)) calc(var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * -1.1102230246251565e-16)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.012)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.156)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.048)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.309)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.108)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.453)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.190)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.587)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.292)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.707)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.412)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.809)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.546)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.891)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.690)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.951)), calc((var(--navs-borderWidth) * 3) + var(--navs-paddingInline) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.843)) calc(var(--navs-borderWidth) + var(--navs-paddingBlock) + var(--v3) + (2 * var(--navs-borderRadius)) + var(--v2) + ((var(--navs-borderRadius) - var(--navs-borderWidth)) * 0.987)), calc((var(--navs-borderWidth) * 2) + var(--navs-paddingInline) + var(--navs-borderRadius)) calc(var(--navs-paddingBlock) + var(--v3) + (3 * var(--navs-borderRadius)) + var(--v2)), calc(100% - var(--navs-borderRadius)) calc(var(--navs-paddingBlock) + var(--v3) + (3 * var(--navs-borderRadius)) + var(--v2)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * -1.8369701987210297e-16)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -1)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.156)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.987)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.309)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.951)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.453)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.891)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.587)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.809)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.707)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.707)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.809)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.587)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.891)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.453)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.951)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.309)), calc(100% - var(--navs-borderRadius) + (var(--navs-borderRadius) * 0.987)) calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2) + (var(--navs-borderRadius) * -0.156)), 100% calc(var(--navs-paddingBlock) + var(--v3) + (4 * var(--navs-borderRadius)) + var(--v2)), 100% 100%, 0 100%);
+    
+    
+    
+    // borders:
+    border        : var(--navs-borderStyle) var(--navs-borderWidth) var(--th-border);
+    border-radius : var(--navs-borderRadius);
+    
+    
+    
+    // backgrounds:
+    background: var(--th-backg);
+    
+    
+    
+    // spacings:
+    margin: calc(0px - var(--navs-borderWidth));
+    
+    
+    
+    // children:
+    &>.underlay>:is(.fill1, .corner1, .corner2, .void3, .corner4, .fill5, .corner5) {
+        border: inherit;
+        position: relative;
+        inset-inline-start: var(--navs-borderWidth);
+    }
+    
+    &>.underlay>:is(.fill1, .corner1) {
+        inset-block-start: var(--navs-borderWidth);
+    }
+    
+    &>.underlay>:is(.fill5, .corner5) {
+        inset-block-end: var(--navs-borderWidth);
+    }
+    
+    &>.underlay>.fill1 {
+        grid-area: fill1;
+        border-inline: 0;
+        border-block-start: 0;
+    }
+    
+    &>.underlay>.corner1 {
+        grid-area: corner1;
+        border-inline-start: 0;
+        border-block-start: 0;
+        border-end-end-radius: var(--navs-borderRadius);
+    }
+    
+    &>.underlay>.corner2 {
+        grid-area: corner2;
+        border-inline-end: 0;
+        border-block-end: 0;
+        border-start-start-radius: var(--navs-borderRadius);
+    }
+    
+    &>.underlay>.void3 {
+        grid-area: void3;
+        border-inline-end: 0;
+        border-block: 0;
+    }
+    
+    &>.underlay>.corner4 {
+        grid-area: corner4;
+        border-inline-end: 0;
+        border-block-start: 0;
+        border-end-start-radius: var(--navs-borderRadius);
+    }
+    
+    &>.underlay>.fill5 {
+        grid-area: fill5;
+        border-inline: 0;
+        border-block-end: 0;
+    }
+    
+    &>.underlay>.corner5 {
+        grid-area: corner5;
+        border-inline-start: 0;
+        border-block-end: 0;
+        border-start-end-radius: var(--navs-borderRadius);
+    }
+}
+
+
+
+/* <Menus>: */
+
+.navside>.menus {
+    grid-area: corner2/corner2/menusC4/menusC4;
+}
+
+.navside>.menus>li>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    background: transparent;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    inline-size: var(--navs-menuInlineSize);
+    block-size: var(--navs-menuBlockSize);
+    padding-inline: var(--navs-menuPaddingInline);
+    padding-block: var(--navs-menuPaddingBlock);
+    column-gap: var(--navs-menuGapInline);
+    row-gap: var(--navs-menuGapBlock);
+}
+
+
+
+/* themes: */
+
+.navside {
+    &.thPrimary {
+        --th-backg: var(--col-primary);
+        --th-border: var(--col-primaryBold);
+    }
+    &.thSecondary {
+        --th-backg: var(--col-secondary);
+        --th-border: var(--col-secondaryBold);
+    }
+    &.thSuccess {
+        --th-backg: var(--col-success);
+        --th-border: var(--col-successBold);
+    }
+    &.thInfo {
+        --th-backg: var(--col-info);
+        --th-border: var(--col-infoBold);
+    }
+    &.thWarning {
+        --th-backg: var(--col-warning);
+        --th-border: var(--col-warningBold);
+    }
+    &.thDanger {
+        --th-backg: var(--col-danger);
+        --th-border: var(--col-dangerBold);
+    }
+    &.thLight {
+        --th-backg: var(--col-light);
+        --th-border: var(--col-lightBold);
+    }
+    &.thDark {
+        --th-backg: var(--col-dark);
+        --th-border: var(--col-darkBold);
+    }
+}

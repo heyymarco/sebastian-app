@@ -26,7 +26,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.page}>
-                <Navside className={styles.theComponent} theme='primary' size='md'>
+                <Navside theme='primary'>
                     <Menu actionCtrl={false}>
                         My Logo
                     </Menu>

@@ -30,7 +30,7 @@ import '@/components/list/styles/listActionItem.css'
 
 // <Navside> css:
 import '@/components/navside/styles/config.css'
-import '@/components/navside/styles/styles.css'
+import '@/components/navside/styles/styles.scss'
 
 // // // // component configs & themes:
 // // // import '@/theme.config'

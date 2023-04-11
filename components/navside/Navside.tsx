@@ -23,6 +23,15 @@ import {
     ListItem,
 }                           from '../list'
 
+// internals:
+import {
+    ThemableProps,
+    useThemable,
+}                           from './variants/themable'
+import {
+    Underlay,
+}                           from './Underlay'
+
 // styles:
 // // // import navsideStyleSheet    from './styles/styles'
 // // // import { navsidePublicVars } from './styles/vars'
@@ -46,51 +55,31 @@ export const enum NavsidePublicVars {
 
 export interface NavsideProps<TElement extends Element = HTMLElement>
     extends
-        // bases:
-        BasicProps<TElement>
+        ThemableProps
 {
     // animations:
-    transitionInterval?: number
+    transitionInterval  ?: number
+    
+    
+    
+    // children:
+    children            ?: React.ReactNode
 }
 export const Navside = <TElement extends Element = HTMLElement>(props: NavsideProps<TElement>): JSX.Element|null => {
-    // // // // styles:
-    // // // const styleSheet = useNavsideStyleSheet();
+    // variants:
+    const themeClass = useThemable(props);
     
     
     
     // rest props:
     const {
-        // refs:
-        elmRef,
-        outerRef,
-        
-        
-        
-        // identifiers:
-        id,
-        
-        
-        
-        // styles:
-        style,
-        
-        
-        
-        // classes:
-        classes,
-        variantClasses,
-        stateClasses,
-        className,
+        // animations:
+        transitionInterval = 300, // ms
         
         
         
         // children:
         children,
-        
-        
-        
-        // animations:
-        transitionInterval = 300, // ms
     ...restBasicProps} = props;
     
     
@@ -107,7 +96,7 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
     
     
     // transitions:
-    const navsideRef = useRef<TElement|null>(null);
+    const navsideRef = useRef<HTMLElement>(null);
     const prevSelectedIndex = useRef<number>(menuSelectedIndex);
     const menuSelectedIndexProp = NavsidePublicVars.MenuSelectedIndex;
     useEffect(() => {
@@ -171,20 +160,9 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
     
     // jsx:
     return (
-        <Generic
+        <nav
             // refs:
-            elmRef={navsideRef}
-            outerRef={outerRef}
-            
-            
-            
-            // semantics:
-            tag='nav'
-            
-            
-            
-            // identifiers:
-            id={id}
+            ref={navsideRef}
             
             
             
@@ -196,36 +174,12 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
             
             
             // classes:
-            mainClass={props.mainClass ?? 'tbu0f'}
-            classes={classes}
-            variantClasses={variantClasses}
-            stateClasses={stateClasses}
-            className={className}
+            className={`navside ${themeClass}`}
         >
-            <Basic
-                // other props:
-                {...restBasicProps}
-                
-                
-                
-                className='underlay'
-            >
-                <div className='fill1'></div>
-                <div className='corner1'></div>
-                <div className='corner2'></div>
-                <div className='void3'></div>
-                <div className='corner4'></div>
-                <div className='fill5'></div>
-                <div className='corner5'></div>
-            </Basic>
+            <Underlay />
             <List
                 // other props:
                 {...restBasicProps}
-                
-                
-                
-                // refs:
-                elmRef={elmRef}
                 
                 
                 
@@ -240,17 +194,12 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
                 
                 
                 
-                // styles:
-                style={style}
-                
-                
-                
                 // behaviors:
                 actionCtrl={true}
             >
                 {children}
             </List>
-        </Generic>
+        </nav>
     );
 }
 
