@@ -1,11 +1,13 @@
-import React from 'react'
+import styles               from './styles/styles.module.scss'
+
+import React                from 'react'
 
 
 
 export const Underlay = (): JSX.Element|null => {
     // jsx:
     return (
-        <div className='underlay'>
+        <div className={styles.underlay}>
             <div className='fill1'></div>
             <div className='corner1'></div>
             <div className='corner2'></div>

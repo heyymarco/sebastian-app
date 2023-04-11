@@ -1,3 +1,5 @@
+import styles               from './styles/styles.module.scss'
+
 import {default as React, useState, useRef, useEffect} from 'react'
 
 // internals:
@@ -143,7 +145,7 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
             
             
             // classes:
-            className={`navside ${themeClass}`}
+            className={`${styles.navside} ${themeClass}`}
         >
             <Underlay />
             <MenuGroup>

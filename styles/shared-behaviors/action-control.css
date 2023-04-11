@@ -1,9 +1,9 @@
 :root {
-    --act-cursor: pointer;
+    --act-cursor                : pointer;
     
     --act-filterPressContrast   : 100%;
     --act-filterPressBrightness : 85%;
     --act-filterPressSaturate   : 100%;
     
-    --ctrl-transPress: 150ms ease-out;
+    --ctrl-transPress           : 150ms ease-out;
 }

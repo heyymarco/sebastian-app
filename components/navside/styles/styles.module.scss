@@ -38,13 +38,65 @@
     filter: var(--navs-dropShadow);
     // invisible border, just for maintaining size:
     border        : solid var(--navs-borderWidth) transparent;
+    
+    
+    
+    // variant_themes:
+    &:global(.thPrimary) {
+        --th-backg: var(--col-primary);
+        --th-foreg: var(--col-primaryText);
+        --th-border: var(--col-primaryBold);
+        --th-ring: var(--col-primaryThin);
+    }
+    &:global(.thSecondary) {
+        --th-backg: var(--col-secondary);
+        --th-foreg: var(--col-secondaryText);
+        --th-border: var(--col-secondaryBold);
+        --th-ring: var(--col-secondaryThin);
+    }
+    &:global(.thSuccess) {
+        --th-backg: var(--col-success);
+        --th-foreg: var(--col-successText);
+        --th-border: var(--col-successBold);
+        --th-ring: var(--col-successThin);
+    }
+    &:global(.thInfo) {
+        --th-backg: var(--col-info);
+        --th-foreg: var(--col-infoText);
+        --th-border: var(--col-infoBold);
+        --th-ring: var(--col-infoThin);
+    }
+    &:global(.thWarning) {
+        --th-backg: var(--col-warning);
+        --th-foreg: var(--col-warningText);
+        --th-border: var(--col-warningBold);
+        --th-ring: var(--col-warningThin);
+    }
+    &:global(.thDanger) {
+        --th-backg: var(--col-danger);
+        --th-foreg: var(--col-dangerText);
+        --th-border: var(--col-dangerBold);
+        --th-ring: var(--col-dangerThin);
+    }
+    &:global(.thLight) {
+        --th-backg: var(--col-light);
+        --th-foreg: var(--col-lightText);
+        --th-border: var(--col-lightBold);
+        --th-ring: var(--col-lightThin);
+    }
+    &:global(.thDark) {
+        --th-backg: var(--col-dark);
+        --th-foreg: var(--col-darkText);
+        --th-border: var(--col-darkBold);
+        --th-ring: var(--col-darkThin);
+    }
 }
 
 
 
 /* <Underlay>: */
 
-.navside>.underlay {
+.underlay {
     // positions:
     grid-area: 1/1/-1/-1;
     
@@ -157,7 +209,7 @@
 
 /* <Menus>: */
 
-.navside>.menus {
+.menus {
     // positions:
     grid-area: corner2/corner2/menusC4/menusC4;
     z-index: 1;
@@ -263,39 +315,40 @@
             
             // <Indicator>
             // activatable (selected/checked/active/current):
-            &.active {
+            &:global(.active) {
                 --ac-filterContrast   : var(--indi-filterActiveContrast);
                 --ac-filterBrightness : var(--indi-filterActiveBrightness);
                 --ac-filterSaturate   : var(--indi-filterActiveSaturate);
             }
             
             
-            
-            // <Control>
-            // focusable:
-            &:is(:focus-visible, :has(:focus-visible)) {
-                box-shadow: var(--ctrl-boxShadowFocus) var(--th-ring);
-            }
-            
-            
-            
-            // <Control>
-            // interactable (hover):
-            &:is(:hover, :focus-visible, :has(:focus-visible)) {
-                --in-filterContrast   : var(--ctrl-filterArriveContrast);
-                --in-filterBrightness : var(--ctrl-filterArriveBrightness);
-                --in-filterSaturate   : var(--ctrl-filterArriveSaturate);
-            }
-            
-            
-            
-            // <ActionControl>
-            // pressed/click:
-            cursor: var(--act-cursor);
-            &:is(:active) {
-                --cl-filterContrast   : var(--act-filterPressContrast);
-                --cl-filterBrightness : var(--act-filterPressBrightness);
-                --cl-filterSaturate   : var(--act-filterPressSaturate);
+            &:global(.actionCtrl) {
+                // <Control>
+                // focusable:
+                &:is(:focus-visible, :has(:focus-visible)) {
+                    box-shadow: var(--ctrl-boxShadowFocus) var(--th-ring);
+                }
+                
+                
+                
+                // <Control>
+                // interactable (hover):
+                &:is(:hover, :focus-visible, :has(:focus-visible)) {
+                    --in-filterContrast   : var(--ctrl-filterArriveContrast);
+                    --in-filterBrightness : var(--ctrl-filterArriveBrightness);
+                    --in-filterSaturate   : var(--ctrl-filterArriveSaturate);
+                }
+                
+                
+                
+                // <ActionControl>
+                // pressed/click:
+                cursor: var(--act-cursor);
+                &:is(:active) {
+                    --cl-filterContrast   : var(--act-filterPressContrast);
+                    --cl-filterBrightness : var(--act-filterPressBrightness);
+                    --cl-filterSaturate   : var(--act-filterPressSaturate);
+                }
             }
             
             
@@ -341,6 +394,10 @@
         }
     }
 }
+
+
+
+// register custom_vars to be animationable:
 
 // disableable:
 @property --dis-filterContrast {
@@ -408,59 +465,4 @@
     syntax: "<percentage>";
     inherits: true;
     initial-value: 100%;
-}
-
-
-
-/* themes: */
-
-.navside {
-    &.thPrimary {
-        --th-backg: var(--col-primary);
-        --th-foreg: var(--col-primaryText);
-        --th-border: var(--col-primaryBold);
-        --th-ring: var(--col-primaryThin);
-    }
-    &.thSecondary {
-        --th-backg: var(--col-secondary);
-        --th-foreg: var(--col-secondaryText);
-        --th-border: var(--col-secondaryBold);
-        --th-ring: var(--col-secondaryThin);
-    }
-    &.thSuccess {
-        --th-backg: var(--col-success);
-        --th-foreg: var(--col-successText);
-        --th-border: var(--col-successBold);
-        --th-ring: var(--col-successThin);
-    }
-    &.thInfo {
-        --th-backg: var(--col-info);
-        --th-foreg: var(--col-infoText);
-        --th-border: var(--col-infoBold);
-        --th-ring: var(--col-infoThin);
-    }
-    &.thWarning {
-        --th-backg: var(--col-warning);
-        --th-foreg: var(--col-warningText);
-        --th-border: var(--col-warningBold);
-        --th-ring: var(--col-warningThin);
-    }
-    &.thDanger {
-        --th-backg: var(--col-danger);
-        --th-foreg: var(--col-dangerText);
-        --th-border: var(--col-dangerBold);
-        --th-ring: var(--col-dangerThin);
-    }
-    &.thLight {
-        --th-backg: var(--col-light);
-        --th-foreg: var(--col-lightText);
-        --th-border: var(--col-lightBold);
-        --th-ring: var(--col-lightThin);
-    }
-    &.thDark {
-        --th-backg: var(--col-dark);
-        --th-foreg: var(--col-darkText);
-        --th-border: var(--col-darkBold);
-        --th-ring: var(--col-darkThin);
-    }
 }

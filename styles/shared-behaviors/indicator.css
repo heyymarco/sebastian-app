@@ -3,10 +3,10 @@
     --indi-filterDisableBrightness : 100%;
     --indi-filterDisableSaturate   : 50%;
     
-    --indi-filterActiveContrast   : 100%;
-    --indi-filterActiveBrightness : 170%;
-    --indi-filterActiveSaturate   : 600%;
+    --indi-filterActiveContrast    : 100%;
+    --indi-filterActiveBrightness  : 170%;
+    --indi-filterActiveSaturate    : 600%;
     
-    --indi-transDisable: 300ms ease-out;
-    --indi-transActive: 300ms ease-out;
+    --indi-transDisable            : 300ms ease-out;
+    --indi-transActive             : 300ms ease-out;
 }

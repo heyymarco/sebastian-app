@@ -1,12 +1,12 @@
 :root {
-    --ctrl-cursorDisable: not-allowed;
+    --ctrl-cursorDisable          : not-allowed;
     
-    --ctrl-boxShadowFocus: 0 0 0 0.25rem;
+    --ctrl-boxShadowFocus         : 0 0 0 0.25rem;
     
     --ctrl-filterArriveContrast   : 100%;
     --ctrl-filterArriveBrightness : 125%;
     --ctrl-filterArriveSaturate   : 100%;
     
-    --ctrl-transFocus: 300ms ease-out;
-    --ctrl-transArrive: 300ms ease-out;
+    --ctrl-transFocus             : 300ms ease-out;
+    --ctrl-transArrive            : 300ms ease-out;
 }

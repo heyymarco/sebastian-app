@@ -107,7 +107,7 @@ export const Menu = <TElement extends Element = HTMLButtonElement>(props: MenuPr
                 
                 
                 // classes:
-                className={active ? 'active' : undefined}
+                className={`${active ? 'active' : ''} ${actionCtrl ? 'actionCtrl' : ''}`}
             >
                 {children}
             </Tag>

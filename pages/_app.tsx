@@ -11,8 +11,7 @@ import '@/styles/shared-behaviors/control.css'           // focus, hover
 import '@/styles/shared-behaviors/action-control.css'    // pressed, clicked, select-mouse-pointer, button-like
 
 // <Navside> css:
-import '@/components/navside/styles/config.css'
-import '@/components/navside/styles/styles.scss'
+import '@/components/navside/styles/config.css'          // navbar on side
 
 // nextJS things:
 import '@/styles/globals.css'

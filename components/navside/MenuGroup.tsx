@@ -1,4 +1,6 @@
-import React from 'react'
+import styles               from './styles/styles.module.scss'
+
+import React                from 'react'
 
 
 
@@ -9,7 +11,7 @@ export interface MenuGroupProps {
 export const MenuGroup = (props: MenuGroupProps): JSX.Element|null => {
     // jsx:
     return (
-        <ul className='menus'>
+        <ul className={styles.menus}>
             {props.children}
         </ul>
     );
