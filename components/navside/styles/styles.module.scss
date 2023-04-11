@@ -1,11 +1,12 @@
+/* <Navside>: */
 .navside {
     // private variables, not exported, so use a short name:
     // restMenuInlineSize:
-    --v1: calc(var(--navs-menuInlineSize) - (2 * var(--navs-borderRadius)));
+    --mis: calc(var(--navs-menuInlineSize) - (2 * var(--navs-borderRadius)));
     // restMenuBlockSize:
-    --v2: calc(var(--navs-menuBlockSize) - (2 * var(--navs-borderRadius)));
+    --mbs: calc(var(--navs-menuBlockSize) - (2 * var(--navs-borderRadius)));
     // menuShiftPos:
-    --v3: calc(var(--navside-menuSelectedIndex) * var(--navs-menuBlockSize));
+    --pos: calc(var(--navside-menuSelectedIndex) * var(--navs-menuBlockSize));
     
     
     
@@ -16,7 +17,7 @@
         "..... ....... ....... ........"calc(0px - var(--navs-borderRadius))
         "..... ....... fill1    corner1"var(--navs-borderRadius)
         "..... corner2 ....... ........"var(--navs-borderRadius)
-        "..... void3   ....... ........"var(--v2)
+        "..... void3   ....... ........"var(--mbs)
         "..... corner4 ....... ........"var(--navs-borderRadius)
         "..... ......  fill5    corner5"var(--navs-borderRadius)
         "..... menusC3 .......  menusC4"auto
@@ -95,7 +96,6 @@
 
 
 /* <Underlay>: */
-
 .underlay {
     // positions:
     grid-area: 1/1/-1/-1;
@@ -106,10 +106,10 @@
     display: grid;
     grid-template:
         "..... ....... ....... ........" var(--navs-paddingBlock)
-        "..... ....... ....... ........" var(--v3)
+        "..... ....... ....... ........" var(--pos)
         "..... ....... fill1    corner1" var(--navs-borderRadius)
         "..... corner2 ....... ........" var(--navs-borderRadius)
-        "..... void3   ....... ........" var(--v2)
+        "..... void3   ....... ........" var(--mbs)
         "..... corner4 ....... ........" var(--navs-borderRadius)
         "..... ......  fill5    corner5" var(--navs-borderRadius)
         "..... menusC3 .......  menusC4" auto
@@ -123,7 +123,7 @@
     --bdw: var(--navs-borderWidth);
     --pdi: var(--navs-paddingInline);
     --pdb: var(--navs-paddingBlock);
-    clip-path: polygon(0 0, 100% 0, 100% calc((var(--bdw) * 2) + var(--pdb) + var(--v3)), calc(100% - var(--bdr) + (var(--bdr) * 1)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0)), calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.156)), calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.309)), calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.453)), calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.587)), calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.707)), calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.809)), calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.891)), calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.951)), calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (var(--bdr) * 0.987)), calc(100% - var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + var(--bdr)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + var(--bdr)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * 1.22)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -1)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.156)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.987)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.309)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.951)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.453)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.891)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.587)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.809)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.707)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.707)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.809)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.587)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.891)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.453)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.951)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.309)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.987)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.156)), calc((var(--bdw) * 3) + var(--pdi)) calc((var(--bdw) * 2) + var(--pdb) + var(--v3) + (2 * var(--bdr))), calc((var(--bdw) * 3) + var(--pdi)) calc(var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * -1.11)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.012)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.156)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.048)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.309)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.108)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.453)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.190)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.587)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.292)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.707)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.412)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.809)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.546)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.891)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.690)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.951)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.843)) calc(var(--bdw) + var(--pdb) + var(--v3) + (2 * var(--bdr)) + var(--v2) + ((var(--bdr) - var(--bdw)) * 0.987)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc(var(--pdb) + var(--v3) + (3 * var(--bdr)) + var(--v2)), calc(100% - var(--bdr)) calc(var(--pdb) + var(--v3) + (3 * var(--bdr)) + var(--v2)), calc(100% - var(--bdr) + (var(--bdr) * -1.83)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -1)), calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.987)), calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.951)), calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.891)), calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.809)), calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.707)), calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.587)), calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.453)), calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.309)), calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2) + (var(--bdr) * -0.156)), 100% calc(var(--pdb) + var(--v3) + (4 * var(--bdr)) + var(--v2)), 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% calc((var(--bdw) * 2) + var(--pdb) + var(--pos)), calc(100% - var(--bdr) + (var(--bdr) * 1)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0)), calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.156)), calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.309)), calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.453)), calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.587)), calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.707)), calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.809)), calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.891)), calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.951)), calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.987)), calc(100% - var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + var(--bdr)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + var(--bdr)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * 1.22)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -1)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.156)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.987)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.309)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.951)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.453)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.891)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.587)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.809)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.707)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.707)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.809)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.587)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.891)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.453)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.951)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.309)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.987)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.156)), calc((var(--bdw) * 3) + var(--pdi)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (2 * var(--bdr))), calc((var(--bdw) * 3) + var(--pdi)) calc(var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * -1.11)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.012)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.156)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.048)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.309)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.108)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.453)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.190)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.587)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.292)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.707)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.412)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.809)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.546)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.891)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.690)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.951)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.843)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.987)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc(var(--pdb) + var(--pos) + (3 * var(--bdr)) + var(--mbs)), calc(100% - var(--bdr)) calc(var(--pdb) + var(--pos) + (3 * var(--bdr)) + var(--mbs)), calc(100% - var(--bdr) + (var(--bdr) * -1.83)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -1)), calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.987)), calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.951)), calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.891)), calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.809)), calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.707)), calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.587)), calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.453)), calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.309)), calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.156)), 100% calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs)), 100% 100%, 0 100%);
     
     
     
@@ -143,61 +143,68 @@
     
     
     
+    // animations & transitions:
+    transition:
+        --pos var(--navs-transMenu)
+    ;
+    
+    
+    
     // children:
-    &>:is(.fill1, .corner1, .corner2, .void3, .corner4, .fill5, .corner5) {
+    &>:global(:is(.fill1, .corner1, .corner2, .void3, .corner4, .fill5, .corner5)) {
         border: inherit;
         position: relative;
         inset-inline-start: var(--navs-borderWidth);
     }
     
-    &>:is(.fill1, .corner1) {
+    &>:global(:is(.fill1, .corner1)) {
         inset-block-start: var(--navs-borderWidth);
     }
     
-    &>:is(.fill5, .corner5) {
+    &>:global(:is(.fill5, .corner5)) {
         inset-block-end: var(--navs-borderWidth);
     }
     
-    &>.fill1 {
+    &>:global(.fill1) {
         grid-area: fill1;
         border-inline: 0;
         border-block-start: 0;
     }
     
-    &>.corner1 {
+    &>:global(.corner1) {
         grid-area: corner1;
         border-inline-start: 0;
         border-block-start: 0;
         border-end-end-radius: var(--navs-borderRadius);
     }
     
-    &>.corner2 {
+    &>:global(.corner2) {
         grid-area: corner2;
         border-inline-end: 0;
         border-block-end: 0;
         border-start-start-radius: var(--navs-borderRadius);
     }
     
-    &>.void3 {
+    &>:global(.void3) {
         grid-area: void3;
         border-inline-end: 0;
         border-block: 0;
     }
     
-    &>.corner4 {
+    &>:global(.corner4) {
         grid-area: corner4;
         border-inline-end: 0;
         border-block-start: 0;
         border-end-start-radius: var(--navs-borderRadius);
     }
     
-    &>.fill5 {
+    &>:global(.fill5) {
         grid-area: fill5;
         border-inline: 0;
         border-block-end: 0;
     }
     
-    &>.corner5 {
+    &>:global(.corner5) {
         grid-area: corner5;
         border-inline-start: 0;
         border-block-end: 0;
@@ -208,7 +215,6 @@
 
 
 /* <Menus>: */
-
 .menus {
     // positions:
     grid-area: corner2/corner2/menusC4/menusC4;
@@ -226,7 +232,7 @@
     // layouts:
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: stretch;
     flex-wrap: nowrap;
     
@@ -320,6 +326,7 @@
                 --ac-filterBrightness : var(--indi-filterActiveBrightness);
                 --ac-filterSaturate   : var(--indi-filterActiveSaturate);
             }
+            
             
             
             &:global(.actionCtrl) {
@@ -465,4 +472,11 @@
     syntax: "<percentage>";
     inherits: true;
     initial-value: 100%;
+}
+
+// <Navside> internal menuShiftPos:
+@property --pos {
+    syntax: "<length-percentage>";
+    inherits: true;
+    initial-value: 0;
 }
