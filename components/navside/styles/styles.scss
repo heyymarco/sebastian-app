@@ -154,25 +154,75 @@
 /* <Menus>: */
 
 .navside>.menus {
+    // positions:
     grid-area: corner2/corner2/menusC4/menusC4;
-}
-
-.navside>.menus>li>div {
+    z-index: 1;
+    
+    
+    
+    // resets:
+    list-style-type: none;
+    margin: 0;
+    padding-inline-start: 0;
+    
+    
+    
+    // layouts:
     display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    align-items: center;
-    background: transparent;
-    flex: 1 1 auto;
-    box-sizing: border-box;
-    inline-size: var(--navs-menuInlineSize);
-    block-size: var(--navs-menuBlockSize);
-    padding-inline: var(--navs-menuPaddingInline);
-    padding-block: var(--navs-menuPaddingBlock);
-    column-gap: var(--navs-menuGapInline);
-    row-gap: var(--navs-menuGapBlock);
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    
+    
+    
+    // children:
+    >li {
+        // resets:
+        text-align: unset;
+        
+        
+        
+        // layouts:
+        display: inherit;
+        flex-direction: inherit;
+        justify-content: inherit;
+        align-items: inherit;
+        flex-wrap: inherit;
+        
+        
+        
+        // children:
+        >* {
+            // resets:
+            appearance: none;
+            
+            
+            
+            // layouts:
+            display: flex;
+            flex-direction: row;
+            justify-content: stretch;
+            align-items: center;
+            background: transparent;
+            flex: 1 1 auto;
+            
+            
+            
+            // sizes:
+            box-sizing: border-box;
+            inline-size: var(--navs-menuInlineSize);
+            block-size: var(--navs-menuBlockSize);
+            
+            
+            // spacings:
+            padding-inline: var(--navs-menuPaddingInline);
+            padding-block: var(--navs-menuPaddingBlock);
+            column-gap: var(--navs-menuGapInline);
+            row-gap: var(--navs-menuGapBlock);
+        }
+    }
 }
-
 
 
 /* themes: */

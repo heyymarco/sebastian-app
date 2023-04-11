@@ -1,28 +1,5 @@
 import {default as React, useState, useRef, useEffect} from 'react'
 
-// // // // cssfn:
-// // // import {
-// // //     // style sheets:
-// // //     dynamicStyleSheet,
-// // // }                           from '@cssfn/cssfn-react'           // writes css in react hook
-
-// reusable-ui components:
-import {
-    Generic,
-    
-    ListItemProps,
-}                           from '@reusable-ui/components'
-
-// neighbour components:
-import {
-    BasicProps,
-    Basic,
-}                           from '../basic'
-import {
-    List,
-    ListItem,
-}                           from '../list'
-
 // internals:
 import {
     ThemableProps,
@@ -31,25 +8,17 @@ import {
 import {
     Underlay,
 }                           from './Underlay'
+import {
+    MenuGroup,
+}                           from './MenuGroup'
+import type {
+    MenuProps,
+}                           from './Menu'
 
 // styles:
-// // // import navsideStyleSheet    from './styles/styles'
-// // // import { navsidePublicVars } from './styles/vars'
 export const enum NavsidePublicVars {
     MenuSelectedIndex = '--navside-menuSelectedIndex'
 }
-
-
-
-// // // // styles:
-// // // export const useNavsideStyleSheet = dynamicStyleSheet(
-// // //     // dynamic load:
-// // //     // () => import(/* webpackPrefetch: true */ './styles/styles.js')   /* when exported to external package */
-// // //     // () => import(/* webpackPrefetch: true */ './styles/styles')         /* when inside nextJs app */
-// // //     
-// // //     // static load:
-// // //     navsideStyleSheet
-// // // , { id: 'mvgvz3bsqe' }); // a unique salt for SSR support, ensures the server-side & client-side have the same generated class names
 
 
 
@@ -80,14 +49,14 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
         
         // children:
         children,
-    ...restBasicProps} = props;
+    } = props;
     
     
     
     // states:
     const [menuSelectedIndex, setMenuSelectedIndex] = useState<number>(0);
     
-    const firstActiveIndex = React.Children.toArray(children).findIndex((listItem) => React.isValidElement<ListItemProps>(listItem) && (listItem.props.active === true))
+    const firstActiveIndex = React.Children.toArray(children).findIndex((menu) => React.isValidElement<MenuProps>(menu) && (menu.props.active === true))
     const activeIndex = (firstActiveIndex >= 0) ? firstActiveIndex : 0;
     if (menuSelectedIndex !== activeIndex) {
         setMenuSelectedIndex(activeIndex);
@@ -177,32 +146,9 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
             className={`navside ${themeClass}`}
         >
             <Underlay />
-            <List
-                // other props:
-                {...restBasicProps}
-                
-                
-                
-                // variants:
-                mild={false}
-                listStyle='flat'
-                
-                
-                
-                // classes:
-                className='menus'
-                
-                
-                
-                // behaviors:
-                actionCtrl={true}
-            >
+            <MenuGroup>
                 {children}
-            </List>
+            </MenuGroup>
         </nav>
     );
-}
-
-export {
-    ListItem as Menu,
 }
