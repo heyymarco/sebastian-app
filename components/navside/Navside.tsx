@@ -25,7 +25,10 @@ import {
 
 // styles:
 // // // import navsideStyleSheet    from './styles/styles'
-import { navsidePublicVars } from './styles/vars'
+// // // import { navsidePublicVars } from './styles/vars'
+export const enum NavsidePublicVars {
+    MenuSelectedIndex = '--navside-menuSelectedIndex'
+}
 
 
 
@@ -106,7 +109,7 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
     // transitions:
     const navsideRef = useRef<TElement|null>(null);
     const prevSelectedIndex = useRef<number>(menuSelectedIndex);
-    const menuSelectedIndexProp = navsidePublicVars.menuSelectedIndex.slice(4, -1);
+    const menuSelectedIndexProp = NavsidePublicVars.MenuSelectedIndex;
     useEffect(() => {
         // conditions:
         const navsideElm = navsideRef.current as Element as HTMLElement;
@@ -187,7 +190,7 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
             
             // styles:
             style={{
-                [navsidePublicVars.menuSelectedIndex.slice(4, -1)]: prevSelectedIndex.current,
+                [NavsidePublicVars.MenuSelectedIndex as any]: prevSelectedIndex.current,
             }}
             
             
