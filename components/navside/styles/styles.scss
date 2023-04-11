@@ -105,60 +105,60 @@
     
     
     // children:
-    &>.underlay>:is(.fill1, .corner1, .corner2, .void3, .corner4, .fill5, .corner5) {
+    &>:is(.fill1, .corner1, .corner2, .void3, .corner4, .fill5, .corner5) {
         border: inherit;
         position: relative;
         inset-inline-start: var(--navs-borderWidth);
     }
     
-    &>.underlay>:is(.fill1, .corner1) {
+    &>:is(.fill1, .corner1) {
         inset-block-start: var(--navs-borderWidth);
     }
     
-    &>.underlay>:is(.fill5, .corner5) {
+    &>:is(.fill5, .corner5) {
         inset-block-end: var(--navs-borderWidth);
     }
     
-    &>.underlay>.fill1 {
+    &>.fill1 {
         grid-area: fill1;
         border-inline: 0;
         border-block-start: 0;
     }
     
-    &>.underlay>.corner1 {
+    &>.corner1 {
         grid-area: corner1;
         border-inline-start: 0;
         border-block-start: 0;
         border-end-end-radius: var(--navs-borderRadius);
     }
     
-    &>.underlay>.corner2 {
+    &>.corner2 {
         grid-area: corner2;
         border-inline-end: 0;
         border-block-end: 0;
         border-start-start-radius: var(--navs-borderRadius);
     }
     
-    &>.underlay>.void3 {
+    &>.void3 {
         grid-area: void3;
         border-inline-end: 0;
         border-block: 0;
     }
     
-    &>.underlay>.corner4 {
+    &>.corner4 {
         grid-area: corner4;
         border-inline-end: 0;
         border-block-start: 0;
         border-end-start-radius: var(--navs-borderRadius);
     }
     
-    &>.underlay>.fill5 {
+    &>.fill5 {
         grid-area: fill5;
         border-inline: 0;
         border-block-end: 0;
     }
     
-    &>.underlay>.corner5 {
+    &>.corner5 {
         grid-area: corner5;
         border-inline-start: 0;
         border-block-end: 0;
