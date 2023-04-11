@@ -1,17 +1,17 @@
 // *shared* css appearances accoss the components:
-import '@/styles/shared-appearances/typos.css'           // fonts, overflowBehavior, lineHeight
-import '@/styles/shared-appearances/colors.css'          // primary color, alternate color, success color, error color, warning color
-import '@/styles/shared-appearances/borders.css'         // border style, border width, default border color
-import '@/styles/shared-appearances/border-radiuses.css' // rounded corners
-import '@/styles/shared-appearances/spacers.css'         // margin, padding, gap
+import '@/styles/shared-appearances/typos.scss'           // fonts, overflowBehavior, lineHeight
+import '@/styles/shared-appearances/colors.scss'          // primary color, alternate color, success color, error color, warning color
+import '@/styles/shared-appearances/borders.scss'         // border style, border width, default border color
+import '@/styles/shared-appearances/border-radiuses.scss' // rounded corners
+import '@/styles/shared-appearances/spacers.scss'         // margin, padding, gap
 
 // *shared* css behaviors accoss the components:
-import '@/styles/shared-behaviors/indicator.css'         // disabled, disabled-mouse-pointer, selected/active/checked
-import '@/styles/shared-behaviors/control.css'           // focus, hover
-import '@/styles/shared-behaviors/action-control.css'    // pressed, clicked, select-mouse-pointer, button-like
+import '@/styles/shared-behaviors/indicator.scss'         // disabled, disabled-mouse-pointer, selected/active/checked
+import '@/styles/shared-behaviors/control.scss'           // focus, hover
+import '@/styles/shared-behaviors/action-control.scss'    // pressed, clicked, select-mouse-pointer, button-like
 
 // <Navside> css:
-import '@/components/navside/styles/config.css'          // navbar on side
+import '@/components/navside/styles/config.scss'          // navbar on side
 
 // nextJS things:
 import '@/styles/globals.css'
