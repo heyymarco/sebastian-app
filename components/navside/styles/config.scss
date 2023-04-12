@@ -10,8 +10,8 @@
     --navs-borderColor          : var(--bor-color);
     
     --navs-borderRadius         : var(--bor-rd-md);
-    --navs-borderRadiusSm       : var(--bor-rd-sm);
-    --navs-borderRadiusLg       : var(--bor-rd-lg);
+    // --navs-borderRadiusSm       : var(--bor-rd-sm);
+    // --navs-borderRadiusLg       : var(--bor-rd-lg);
     
     
     
@@ -24,10 +24,10 @@
     // spacings:
     --navs-paddingInline        : var(--spc-md);
     --navs-paddingBlock         : var(--navs-paddingInline);
-    --navs-paddingInlineSm      : var(--spc-sm);
-    --navs-paddingBlockSm       : var(--navs-paddingInlineSm);
-    --navs-paddingInlineLg      : var(--spc-lg);
-    --navs-paddingBlockLg       : var(--navs-paddingInlineLg);
+    // --navs-paddingInlineSm      : var(--spc-sm);
+    // --navs-paddingBlockSm       : var(--navs-paddingInlineSm);
+    // --navs-paddingInlineLg      : var(--spc-lg);
+    // --navs-paddingBlockLg       : var(--navs-paddingInlineLg);
     
     
     
@@ -35,16 +35,16 @@
     --navs-menuInlineSize       : 14rem;
     --navs-menuBlockSize        : 3.5rem;
     --navs-menuPaddingInline    : calc(var(--navs-borderRadius) * 1.25);
-    --navs-menuPaddingInlineSm  : calc(var(--navs-borderRadiusSm) * 1.25);
-    --navs-menuPaddingInlineLg  : calc(var(--navs-borderRadiusLg) * 1.25);
+    // --navs-menuPaddingInlineSm  : calc(var(--navs-borderRadiusSm) * 1.25);
+    // --navs-menuPaddingInlineLg  : calc(var(--navs-borderRadiusLg) * 1.25);
     --navs-menuPaddingBlock     : calc(var(--navs-borderRadius) * 0.5);
-    --navs-menuPaddingBlockSm   : calc(var(--navs-borderRadiusSm) * 0.5);
-    --navs-menuPaddingBlockLg   : calc(var(--navs-borderRadiusLg) * 0.5);
+    // --navs-menuPaddingBlockSm   : calc(var(--navs-borderRadiusSm) * 0.5);
+    // --navs-menuPaddingBlockLg   : calc(var(--navs-borderRadiusLg) * 0.5);
     --navs-menuGapInline        : 1em;
     --navs-menuGapBlock         : var(--navs-menuGapInline);
     
     
     
-    // animations & transitions:
-    --navs-transMenu            : 300ms ease-out
+    // // animations & transitions:
+    // --navs-transMenu            : 300ms ease-out
 }

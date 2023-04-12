@@ -176,7 +176,8 @@
         calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.156)),
         100% calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs)),
         100% 100%,
-        0 100%);
+        0 100%
+    );
     
     
     
@@ -196,10 +197,10 @@
     
     
     
-    // animations & transitions:
-    transition:
-        --pos var(--navs-transMenu)
-    ;
+    // // animations & transitions:
+    // transition:
+    //     --pos var(--navs-transMenu)
+    // ;
     
     
     
@@ -369,6 +370,14 @@
                 --dis-filterContrast   : var(--indi-filterDisableContrast);
                 --dis-filterBrightness : var(--indi-filterDisableBrightness);
                 --dis-filterSaturate   : var(--indi-filterDisableSaturate);
+                
+                // firefox & safari fix:
+                @supports (-moz-animation: none) or (min-resolution:.001dpcm) {
+                    filter:
+                        // disableable:
+                        #{"contrast(var(--dis-filterContrast)) brightness(var(--dis-filterBrightness)) saturate(var(--dis-filterSaturate))"}
+                        ;
+                }
             }
             
             
@@ -379,6 +388,14 @@
                 --ac-filterContrast   : var(--indi-filterActiveContrast);
                 --ac-filterBrightness : var(--indi-filterActiveBrightness);
                 --ac-filterSaturate   : var(--indi-filterActiveSaturate);
+                
+                // firefox & safari fix:
+                @supports (-moz-animation: none) or (min-resolution:.001dpcm) {
+                    filter:
+                        // activatable (selected/checked/active/current):
+                        #{"contrast(var(--ac-filterContrast)) brightness(var(--ac-filterBrightness)) saturate(var(--ac-filterSaturate))"}
+                        ;
+                }
             }
             
             
@@ -398,6 +415,14 @@
                     --in-filterContrast   : var(--ctrl-filterArriveContrast);
                     --in-filterBrightness : var(--ctrl-filterArriveBrightness);
                     --in-filterSaturate   : var(--ctrl-filterArriveSaturate);
+                    
+                    // firefox & safari fix:
+                    @supports (-moz-animation: none) or (min-resolution:.001dpcm) {
+                        filter:
+                            // interactable (hover):
+                            #{"contrast(var(--in-filterContrast)) brightness(var(--in-filterBrightness)) saturate(var(--in-filterSaturate))"}
+                            ;
+                    }
                 }
                 
                 
@@ -409,6 +434,14 @@
                     --cl-filterContrast   : var(--act-filterPressContrast);
                     --cl-filterBrightness : var(--act-filterPressBrightness);
                     --cl-filterSaturate   : var(--act-filterPressSaturate);
+                    
+                    // firefox & safari fix:
+                    @supports (-moz-animation: none) or (min-resolution:.001dpcm) {
+                        filter:
+                            // pressed/click:
+                            #{"contrast(var(--cl-filterContrast)) brightness(var(--cl-filterBrightness)) saturate(var(--cl-filterSaturate))"}
+                            ;
+                    }
                 }
             }
             
@@ -452,6 +485,26 @@
                 // pressed/click:
                 #{"contrast(var(--cl-filterContrast)) brightness(var(--cl-filterBrightness)) saturate(var(--cl-filterSaturate))"}
                 ;
+            
+            // firefox & safari fix:
+            @supports (-moz-animation: none) or (min-resolution:.001dpcm) {
+                transition:
+                    filter 300ms ease-out
+                    ;
+                filter:
+                    // disableable:
+                    contrast(100%) brightness(100%) saturate(100%)
+                    
+                    // activatable (selected/checked/active/current):
+                    contrast(100%) brightness(100%) saturate(100%)
+                    
+                    // interactable (hover):
+                    contrast(100%) brightness(100%) saturate(100%)
+                    
+                    // pressed/click:
+                    contrast(100%) brightness(100%) saturate(100%)
+                    ;
+            }
         }
     }
 }
