@@ -83,6 +83,7 @@ export const Navside = <TElement extends Element = HTMLElement>(props: NavsidePr
             firstPositioning.current = false;
             prevSelectedIndex.current = menuSelectedIndex;
             navsideElm.style.setProperty(menuSelectedIndexProp, `${prevSelectedIndex.current}`);
+            return;
         } // if
         
         
