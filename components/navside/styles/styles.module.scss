@@ -36,6 +36,7 @@
     
     
     // borders & shadows:
+    transform: translateZ(0); // safari fix
     filter: var(--navs-dropShadow);
     // invisible border, just for maintaining size:
     border        : solid var(--navs-borderWidth) transparent;
@@ -123,7 +124,59 @@
     --bdw: var(--navs-borderWidth);
     --pdi: var(--navs-paddingInline);
     --pdb: var(--navs-paddingBlock);
-    clip-path: polygon(0 0, 100% 0, 100% calc((var(--bdw) * 2) + var(--pdb) + var(--pos)), calc(100% - var(--bdr) + (var(--bdr) * 1)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0)), calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.156)), calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.309)), calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.453)), calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.587)), calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.707)), calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.809)), calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.891)), calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.951)), calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.987)), calc(100% - var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + var(--bdr)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + var(--bdr)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * 1.22)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -1)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.156)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.987)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.309)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.951)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.453)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.891)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.587)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.809)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.707)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.707)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.809)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.587)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.891)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.453)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.951)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.309)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.987)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.156)), calc((var(--bdw) * 3) + var(--pdi)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (2 * var(--bdr))), calc((var(--bdw) * 3) + var(--pdi)) calc(var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * -1.11)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.012)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.156)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.048)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.309)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.108)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.453)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.190)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.587)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.292)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.707)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.412)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.809)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.546)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.891)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.690)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.951)), calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.843)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.987)), calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc(var(--pdb) + var(--pos) + (3 * var(--bdr)) + var(--mbs)), calc(100% - var(--bdr)) calc(var(--pdb) + var(--pos) + (3 * var(--bdr)) + var(--mbs)), calc(100% - var(--bdr) + (var(--bdr) * -1.83)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -1)), calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.987)), calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.951)), calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.891)), calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.809)), calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.707)), calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.587)), calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.453)), calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.309)), calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.156)), 100% calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs)), 100% 100%, 0 100%);
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc((var(--bdw) * 2) + var(--pdb) + var(--pos)),
+        calc(100% - var(--bdr) + (var(--bdr) * 1)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.156)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.309)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.453)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.587)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.707)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.809)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.891)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.951)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (var(--bdr) * 0.987)),
+        calc(100% - var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + var(--bdr)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + var(--bdr)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * 1.22)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -1)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.156)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.987)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.309)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.951)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.453)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.891)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.587)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.809)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.707)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.707)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.809)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.587)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.891)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.453)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.951)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.309)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr) + ((var(--bdr) - var(--bdw)) * -0.987)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + ((var(--bdr) - var(--bdw)) * -0.156)),
+        calc((var(--bdw) * 3) + var(--pdi)) calc((var(--bdw) * 2) + var(--pdb) + var(--pos) + (2 * var(--bdr))),
+        calc((var(--bdw) * 3) + var(--pdi)) calc(var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * -1.11)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.012)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.156)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.048)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.309)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.108)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.453)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.190)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.587)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.292)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.707)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.412)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.809)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.546)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.891)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.690)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.951)),
+        calc((var(--bdw) * 3) + var(--pdi) + ((var(--bdr) - var(--bdw)) * 0.843)) calc(var(--bdw) + var(--pdb) + var(--pos) + (2 * var(--bdr)) + var(--mbs) + ((var(--bdr) - var(--bdw)) * 0.987)),
+        calc((var(--bdw) * 2) + var(--pdi) + var(--bdr)) calc(var(--pdb) + var(--pos) + (3 * var(--bdr)) + var(--mbs)),
+        calc(100% - var(--bdr)) calc(var(--pdb) + var(--pos) + (3 * var(--bdr)) + var(--mbs)),
+        calc(100% - var(--bdr) + (var(--bdr) * -1.83)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -1)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.156)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.987)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.309)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.951)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.453)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.891)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.587)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.809)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.707)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.707)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.809)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.587)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.891)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.453)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.951)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.309)),
+        calc(100% - var(--bdr) + (var(--bdr) * 0.987)) calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs) + (var(--bdr) * -0.156)),
+        100% calc(var(--pdb) + var(--pos) + (4 * var(--bdr)) + var(--mbs)),
+        100% 100%,
+        0 100%);
     
     
     
@@ -218,6 +271,7 @@
 .menus {
     // positions:
     grid-area: corner2/corner2/menusC4/menusC4;
+    position: relative;
     z-index: 1;
     
     
